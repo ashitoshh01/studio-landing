@@ -1,9 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #ffffff;
-  --color-foreground: #09090b; /* slab-950 equivalent */
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+
   --font-sans: var(--font-inter);
+
+  --animate-spin-slow: spin 8s linear infinite;
 }
 
 @layer base {
@@ -17,20 +32,16 @@
   .container-wrapper {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
   .h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+    @apply text-5xl md:text-7xl font-bold tracking-tight leading-tight;
   }
-  
+
   .h2 {
-    @apply text-3xl md:text-4xl font-semibold tracking-tight;
+    @apply text-3xl md:text-5xl font-semibold tracking-tight;
   }
-  
-  .h3 {
-    @apply text-xl md:text-2xl font-medium;
-  }
-  
-  .p {
-    @apply text-base text-gray-600 leading-relaxed;
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-linear-to-b from-white to-zinc-500;
   }
 }
