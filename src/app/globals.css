@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #09090b; /* slab-950 equivalent */
+  --font-sans: var(--font-inter);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .container-wrapper {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+  
+  .h2 {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight;
+  }
+  
+  .h3 {
+    @apply text-xl md:text-2xl font-medium;
+  }
+  
+  .p {
+    @apply text-base text-gray-600 leading-relaxed;
+  }
+}

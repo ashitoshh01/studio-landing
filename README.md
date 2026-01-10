@@ -1,45 +1,24 @@
-# Studio_Landing - Digital Agency Website
+# Studio. - Digital Agency Website
 
-A clean, minimal, and professional digital agency website designed to convert visitors into real clients.  
-Users can submit their project requirements, and our team contacts them within 24 hours.
+A clean, minimal, and professional digital agency website designed to convert visitors into real clients.
+Built with Next.js 15, React 19, and Tailwind CSS v4.
 
-## ✨ Overview
+## Getting Started
 
-This project represents a modern agency landing page with a strong focus on:
-- Clean UI
-- Fast UX
-- Professional look
-- High conversion
+First, run the development server:
 
-No flashy colors, no unnecessary animations, and no AI-style gradients — just a serious, premium web presence.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## 🎯 Purpose
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The goal of this website is simple:
+## Deploy on Vercel
 
-1. Visitor lands on the site
-2. Visitor submits their project requirement
-3. We review the request
-4. We contact the client within 24 hours
-
-This keeps the process human, direct, and efficient.
-
-## 🧩 Features
-
-- Minimal and professional UI
-- Mobile-first, fully responsive design
-- Fast-loading and lightweight
-- Clear project requirement submission flow
-- Clean typography and strong visual hierarchy
-- SEO-friendly structure
-
-## 🛠 Tech Stack
-
-*(Update this section based on what you use)*
-
-- HTML / CSS / JavaScript  
-- OR React / Next.js  
-- OR any modern frontend framework
-
-## 📁 Project Structure
-
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new).
