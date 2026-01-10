@@ -28,11 +28,14 @@ export function ContactForm() {
                 body: JSON.stringify(data),
             });
 
-            if (!response.ok) throw new Error('Failed to send message');
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData?.error?.message || 'Failed to send message');
+            }
 
             setIsSuccess(true);
-        } catch (error) {
-            setErrorMessage('Something went wrong. Please try again.');
+        } catch (error: any) {
+            setErrorMessage(error.message || 'Something went wrong. Please try again.');
         } finally {
             setIsLoading(false);
         }
