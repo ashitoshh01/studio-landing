@@ -29,8 +29,16 @@ export function ContactForm() {
             });
 
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData?.error?.message || 'Failed to send message');
+                let errorMessage = 'Failed to send message';
+                try {
+                    const errorData = await response.json();
+                    errorMessage = errorData?.error?.message || errorMessage;
+                } catch (e) {
+                    // Response was not JSON (likely a 500 error page or empty)
+                    console.error('Non-JSON response:', e);
+                    errorMessage = `Server Error (${response.status}). Please try again later.`;
+                }
+                throw new Error(errorMessage);
             }
 
             setIsSuccess(true);
