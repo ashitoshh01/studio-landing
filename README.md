@@ -1,5 +1,4 @@
-# Studio-Landing
-# Digital Agency Website
+# Studio_Landing - Digital Agency Website
 
 A clean, minimal, and professional digital agency website designed to convert visitors into real clients.  
 Users can submit their project requirements, and our team contacts them within 24 hours.
