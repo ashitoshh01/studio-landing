@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Search, X } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { ContactForm } from '@/components/contact-form';
 
 export default function Home() {
   const [isInputFocused, setIsInputFocused] = useState(false);
@@ -37,7 +38,7 @@ export default function Home() {
               <span className="text-zinc-500">We build empires.</span>
             </motion.h1>
 
-            {/* Main Interactive Input (from sketch) */}
+            {/* Main Interactive Input */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -55,7 +56,7 @@ export default function Home() {
                   onChange={(e) => setRequirement(e.target.value)}
                   onFocus={() => setIsInputFocused(true)}
                   onBlur={() => setIsInputFocused(false)}
-                  placeholder="Tell us what you need (e.g., 'A modern e-commerce site')..."
+                  placeholder="Tell us what you need..."
                   className="flex-1 bg-transparent border-none outline-hidden text-lg text-white placeholder:text-zinc-500 h-12 w-full"
                 />
                 <Button
@@ -70,8 +71,7 @@ export default function Home() {
                 </Button>
               </div>
 
-              {/* "Try First Pay Later" Sticker (from sketch) */}
-              {/* Positioned comfortably near the input */}
+              {/* Sticker */}
               <motion.div
                 initial={{ rotate: -12, scale: 0 }}
                 animate={{ rotate: 12, scale: 1 }}
@@ -95,8 +95,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* --- PROJECTS SECTION (from sketch) --- */}
-        <section className="py-24 bg-zinc-950 border-t border-zinc-900">
+        {/* --- PROJECTS SECTION --- */}
+        <section id="work" className="py-24 bg-zinc-950 border-t border-zinc-900">
           <div className="container-wrapper">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -119,14 +119,12 @@ export default function Home() {
                   whileHover={{ y: -10 }}
                   className="group relative aspect-video bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-white/20 transition-all"
                 >
-                  {/* Pseudo Project Image */}
                   <div className="absolute inset-0 bg-zinc-800 group-hover:bg-zinc-700 transition-colors flex items-center justify-center">
                     <span className="text-zinc-600 font-bold text-2xl group-hover:text-white transition-colors">
                       Project {item}
                     </span>
                   </div>
 
-                  {/* Overlay Info */}
                   <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/80 to-transparent">
                     <h3 className="text-xl font-bold text-white">Client Name</h3>
                     <p className="text-zinc-300 text-sm">Web Development • Design</p>
@@ -143,17 +141,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* --- CONTACT SECTION (preserved but styled darkly) --- */}
+        {/* --- CONTACT SECTION --- */}
         <section id="contact" className="py-24 bg-black">
           <div className="container-wrapper max-w-2xl text-center">
             <h2 className="h2 text-white mb-6">Ready to start?</h2>
             <p className="text-zinc-400 mb-10">You have the idea. We have the team. <br />Fill the form below and let's get moving.</p>
 
             <div className="bg-zinc-900/50 p-8 rounded-3xl border border-zinc-800 text-left">
-              {/* Re-using the contact form but wrapping it to fit the theme */}
-              {/* NOTE: We need to update ContactForm components to handle dark mode specifically if they aren't using foreground/background vars perfectly. 
-                    Actually, based on previous step, they use text-zinc-900 mostly. I should update ContactForm too. */}
-              <DarkContactForm />
+              <ContactForm />
             </div>
           </div>
         </section>
@@ -163,55 +158,4 @@ export default function Home() {
       <Footer />
     </div>
   );
-}
-
-// Temporary inline Dark Mode optimized form or we modify the original. 
-// I will create a modified version here for simplicity in this file, or update the component efficiently. 
-// Since 'ContactForm' is imported, let's just make it look good.
-function DarkContactForm() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsLoading(false);
-    setIsSuccess(true);
-  };
-
-  if (isSuccess) {
-    return (
-      <div className="text-center py-10">
-        <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-          <ArrowRight className="text-green-500 w-8 h-8 rotate-[-45deg]" />
-        </div>
-        <h3 className="text-white text-xl font-bold">Received</h3>
-        <p className="text-zinc-400 mt-2">We'll be in touch within 24 hours.</p>
-        <Button onClick={() => setIsSuccess(false)} variant="outline" className="mt-6 border-zinc-700 text-white hover:bg-zinc-800">
-          Reset
-        </Button>
-      </div>
-    )
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-zinc-400">Name</label>
-          <input className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:ring-1 focus:ring-white outline-none transition-all" placeholder="John Doe" required />
-        </div>
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-zinc-400">Email</label>
-          <input type="email" className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:ring-1 focus:ring-white outline-none transition-all" placeholder="john@example.com" required />
-        </div>
-      </div>
-      <div className="space-y-2">
-        <label className="text-sm font-medium text-zinc-400">Tell us about your project</label>
-        <textarea className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:ring-1 focus:ring-white outline-none transition-all min-h-[120px]" placeholder="Type here..." required />
-      </div>
-      <Button className="w-full bg-white text-black hover:bg-zinc-200" size="lg" isLoading={isLoading}>Submit Request</Button>
-    </form>
-  )
 }
