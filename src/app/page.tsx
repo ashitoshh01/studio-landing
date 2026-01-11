@@ -9,6 +9,7 @@ import { RevealImageList } from '@/components/ui/reveal-images';
 import { TestimonialsSection } from '@/components/testimonials-section';
 import { ProjectsSection } from '@/components/projects-section';
 import { Loading } from '@/components/ui/circle-unique-load';
+import { TestimonialImageCards } from '@/components/ui/testimonial-image-cards';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,12 +38,7 @@ export default function Home() {
         {/* --- SERVICES SECTION --- */}
         <section id="services" className="py-24 bg-black border-t border-zinc-900">
           <div className="container-wrapper">
-            <div className="mb-16 text-center">
-              <h2 className="h2 text-white">Our Expertise</h2>
-              <p className="text-zinc-400 mt-4 text-lg">
-                Comprehensive digital solutions for modern businesses
-              </p>
-            </div>
+
 
             <div className="flex justify-center">
               <RevealImageList />
@@ -74,7 +70,10 @@ export default function Home() {
               </p>
             </div>
 
-            <TestimonialsSection />
+            <div className="flex flex-col gap-12">
+              <TestimonialsSection />
+              <TestimonialImageCards />
+            </div>
           </div>
         </section>
 
