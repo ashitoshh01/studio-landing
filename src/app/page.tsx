@@ -6,7 +6,6 @@ import { Footer } from '@/components/footer';
 import { ContactSection } from '@/components/ui/contact';
 import { Web3HeroAnimated } from '@/components/ui/animated-web3-landing-page';
 import { RevealImageList } from '@/components/ui/reveal-images';
-import { TestimonialsSection } from '@/components/testimonials-section';
 import { ProjectsSection } from '@/components/projects-section';
 import { Loading } from '@/components/ui/circle-unique-load';
 import { MarqueeTestimonials } from '@/components/ui/marquee-testimonials';
@@ -71,7 +70,6 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col gap-0">
-              <TestimonialsSection />
               <MarqueeTestimonials />
             </div>
           </div>
