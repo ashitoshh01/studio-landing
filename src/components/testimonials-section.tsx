@@ -1,136 +1,59 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Card, CardContent } from '@/components/ui/card';
-import { Marquee } from '@/components/ui/3d-testimonials';
+"use client"
 
-// Client testimonials
-const testimonials = [
+import { AnimatedReviewCards } from '@/components/ui/animated-review-card';
+
+const clientReviews = [
     {
-        name: 'Sarah Thompson',
-        username: '@sarahtech',
-        body: 'Outstanding work! Our website traffic increased by 300% after the redesign.',
-        img: 'https://randomuser.me/api/portraits/women/44.jpg',
-        country: '🇺🇸 USA',
+        id: 1,
+        name: "Sarah Thompson",
+        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces",
+        text: "Outstanding work! Our website traffic increased by 300% after the redesign. The team delivered beyond expectations with exceptional attention to detail.",
+        rating: 5,
     },
     {
-        name: 'Michael Chen',
-        username: '@mchen',
-        body: 'The team delivered beyond expectations. Highly professional and creative!',
-        img: 'https://randomuser.me/api/portraits/men/32.jpg',
-        country: '🇸🇬 Singapore',
+        id: 2,
+        name: "Michael Chen",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
+        text: "The team delivered beyond expectations. Highly professional and creative! Our digital presence has never looked better.",
+        rating: 5,
     },
     {
-        name: 'Emma Rodriguez',
-        username: '@emmarodriguez',
-        body: 'Best agency we\'ve worked with. They truly understand modern web development.',
-        img: 'https://randomuser.me/api/portraits/women/65.jpg',
-        country: '🇪🇸 Spain',
+        id: 3,
+        name: "Emma Rodriguez",
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces",
+        text: "Best agency we've worked with. They truly understand modern web development and delivered a solution that exceeded our goals.",
+        rating: 5,
     },
     {
-        name: 'David Miller',
-        username: '@davemiller',
-        body: 'Fast turnaround, excellent communication, and beautiful results!',
-        img: 'https://randomuser.me/api/portraits/men/54.jpg',
-        country: '🇬🇧 UK',
+        id: 4,
+        name: "David Miller",
+        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces",
+        text: "Fast turnaround, excellent communication, and beautiful results! Couldn't be happier with the final product.",
+        rating: 5,
     },
     {
-        name: 'Priya Sharma',
-        username: '@priya_s',
-        body: 'They transformed our digital presence completely. Amazing team!',
-        img: 'https://randomuser.me/api/portraits/women/72.jpg',
-        country: '🇮🇳 India',
-    },
-    {
-        name: 'James Wilson',
-        username: '@jwilson',
-        body: 'Exceptional attention to detail and user experience. Worth every penny!',
-        img: 'https://randomuser.me/api/portraits/men/67.jpg',
-        country: '🇨🇦 Canada',
-    },
-    {
-        name: 'Sophie Laurent',
-        username: '@sophiel',
-        body: 'Creative solutions and flawless execution. Our sales doubled!',
-        img: 'https://randomuser.me/api/portraits/women/29.jpg',
-        country: '🇫🇷 France',
-    },
-    {
-        name: 'Alex Zhang',
-        username: '@alexz',
-        body: 'Top-notch developers with great design sense. Highly recommend!',
-        img: 'https://randomuser.me/api/portraits/men/18.jpg',
-        country: '🇨🇳 China',
-    },
-    {
-        name: 'Isabella Costa',
-        username: '@bellacosta',
-        body: 'The perfect blend  of aesthetics and functionality. Love our new platform!',
-        img: 'https://randomuser.me/api/portraits/women/50.jpg',
-        country: '🇧🇷 Brazil',
+        id: 5,
+        name: "Priya Sharma",
+        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=faces",
+        text: "They transformed our digital presence completely. Amazing team with incredible design sense and technical expertise!",
+        rating: 5,
     },
 ];
 
-function TestimonialCard({ img, name, username, body, country }: (typeof testimonials)[number]) {
-    return (
-        <Card className="w-50">
-            <CardContent>
-                <div className="flex items-center gap-2.5">
-                    <Avatar className="size-9">
-                        <AvatarImage src={img} alt={username} />
-                        <AvatarFallback>{name[0]}</AvatarFallback>
-                    </Avatar>
-                    <div className="flex flex-col">
-                        <figcaption className="text-sm font-medium text-foreground flex items-center gap-1">
-                            {name} <span className="text-xs">{country}</span>
-                        </figcaption>
-                        <p className="text-xs font-medium text-muted-foreground">{username}</p>
-                    </div>
-                </div>
-                <blockquote className="mt-3 text-sm text-secondary-foreground">{body}</blockquote>
-            </CardContent>
-        </Card>
-    );
-}
-
 export function TestimonialsSection() {
     return (
-        <div className="border border-border rounded-lg relative flex h-96 w-full max-w-[800px] mx-auto flex-row items-center justify-center overflow-hidden gap-1.5 [perspective:300px]">
-            <div
-                className="flex flex-row items-center gap-4"
-                style={{
-                    transform:
-                        'translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)',
+        <div className="w-full flex items-center justify-center py-8">
+            <AnimatedReviewCards
+                reviews={clientReviews}
+                interactionType="click"
+                theme="default"
+                autoRotate={true}
+                rotateInterval={5000}
+                showBorderBeam={true}
+                classNames={{
+                    container: "items-center justify-center",
                 }}
-            >
-                {/* Vertical Marquee (downwards) */}
-                <Marquee vertical pauseOnHover repeat={3} className="[--duration:40s]">
-                    {testimonials.map((review) => (
-                        <TestimonialCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                {/* Vertical Marquee (upwards) */}
-                <Marquee vertical pauseOnHover reverse repeat={3} className="[--duration:40s]">
-                    {testimonials.map((review) => (
-                        <TestimonialCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                {/* Vertical Marquee (downwards) */}
-                <Marquee vertical pauseOnHover repeat={3} className="[--duration:40s]">
-                    {testimonials.map((review) => (
-                        <TestimonialCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                {/* Vertical Marquee (upwards) */}
-                <Marquee vertical pauseOnHover reverse repeat={3} className="[--duration:40s]">
-                    {testimonials.map((review) => (
-                        <TestimonialCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                {/* Gradient overlays for vertical marquee */}
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
-                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
-                <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
-            </div>
+            />
         </div>
     );
 }
