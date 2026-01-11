@@ -1,4 +1,4 @@
-# Implementation Plan - Digital Agency Website
+we # Implementation Plan - Digital Agency Website
 
 ## 1. Setup & Design System
 - [ ] Clean up default Next.js boilerplate (`page.tsx`, `globals.css`).

@@ -16,14 +16,26 @@
   --color-zinc-900: #18181b;
   --color-zinc-950: #09090b;
 
+  --color-muted: #27272a;
+  --color-muted-foreground: #a1a1aa;
+  --color-card: #18181b;
+  --color-card-foreground: #ffffff;
+  --color-border: #3f3f46;
+
   --font-sans: var(--font-inter);
 
   --animate-spin-slow: spin 8s linear infinite;
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 }
 
 @layer base {
+  html {
+    @apply overflow-x-hidden;
+  }
+
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
@@ -43,5 +55,25 @@
 
   .text-gradient {
     @apply bg-clip-text text-transparent bg-linear-to-b from-white to-zinc-500;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
   }
 }
