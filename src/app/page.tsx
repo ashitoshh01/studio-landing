@@ -5,7 +5,7 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { ContactSection } from '@/components/ui/contact';
 import { Web3HeroAnimated } from '@/components/ui/animated-web3-landing-page';
-import { RevealImageList } from '@/components/ui/reveal-images';
+
 import { ProjectsSection } from '@/components/projects-section';
 import { Loading } from '@/components/ui/circle-unique-load';
 import { MarqueeTestimonials } from '@/components/ui/marquee-testimonials';
@@ -39,9 +39,7 @@ export default function Home() {
           <div className="container-wrapper">
 
 
-            <div className="flex justify-center">
-              <RevealImageList />
-            </div>
+
           </div>
         </section>
 
