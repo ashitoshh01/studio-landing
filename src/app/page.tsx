@@ -5,6 +5,7 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { ContactSection } from '@/components/ui/contact';
 import { Web3HeroAnimated } from '@/components/ui/animated-web3-landing-page';
+import { RevealImageList } from '@/components/ui/reveal-images';
 
 import { ProjectsSection } from '@/components/projects-section';
 import { Loading } from '@/components/ui/circle-unique-load';
@@ -37,9 +38,16 @@ export default function Home() {
         {/* --- SERVICES SECTION --- */}
         <section id="services" className="py-24 bg-black border-t border-zinc-900">
           <div className="container-wrapper">
+            <div className="mb-16 text-center">
+              <h2 className="h2 text-white">Our Expertise</h2>
+              <p className="text-zinc-400 mt-4 text-lg">
+                Comprehensive digital solutions for modern businesses
+              </p>
+            </div>
 
-
-
+            <div className="flex justify-center">
+              <RevealImageList />
+            </div>
           </div>
         </section>
 
