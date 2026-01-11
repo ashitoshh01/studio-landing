@@ -56,13 +56,14 @@ export function Navbar() {
                     : "bg-transparent py-4"
             )}
         >
-            <div className="container-wrapper flex items-center justify-between">
-                <Link href="/" className="text-2xl font-bold text-white tracking-tighter hover:opacity-80 transition-opacity">
+            <div className="container-wrapper relative flex items-center h-14">
+                {/* Branding - Left Aligned */}
+                <Link href="/" className="text-2xl font-bold text-white tracking-tighter hover:opacity-80 transition-opacity z-50">
                     Wowgency
                 </Link>
 
-                {/* Desktop Navigation using ExpandableTabs */}
-                <div className="hidden md:block">
+                {/* Centered Navigation */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-fit hidden md:block">
                     <ExpandableTabs
                         tabs={tabs}
                         activeColor="text-white"
@@ -71,10 +72,8 @@ export function Navbar() {
                     />
                 </div>
 
-                {/* Mobile Navigation Placeholder or simple button if needed */}
-                <div className="md:hidden">
-                    {/* We can use the same ExpandableTabs or a menu button. 
-              For now keeping it simple as per request to match 'earlier' which likely was desktop focused */}
+                {/* Mobile Navigation - Right Aligned (visible only on mobile) */}
+                <div className="md:hidden ml-auto z-50">
                     <ExpandableTabs
                         tabs={tabs}
                         activeColor="text-white"
