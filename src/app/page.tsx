@@ -9,7 +9,7 @@ import { RevealImageList } from '@/components/ui/reveal-images';
 import { TestimonialsSection } from '@/components/testimonials-section';
 import { ProjectsSection } from '@/components/projects-section';
 import { Loading } from '@/components/ui/circle-unique-load';
-import { TestimonialImageCards } from '@/components/ui/testimonial-image-cards';
+import { MarqueeTestimonials } from '@/components/ui/marquee-testimonials';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -70,9 +70,9 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-0">
               <TestimonialsSection />
-              <TestimonialImageCards />
+              <MarqueeTestimonials />
             </div>
           </div>
         </section>
