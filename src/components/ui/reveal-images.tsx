@@ -42,48 +42,48 @@ function RevealImageListItem({ text, images }: ShowImageListItemProps) {
 function RevealImageList() {
     const items: ShowImageListItemProps[] = [
         {
-            text: "Branding",
+            text: "UI/UX Design",
             images: [
                 {
-                    src: "https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-                    alt: "Image 1",
+                    src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&auto=format&fit=crop&q=60",
+                    alt: "UI Design",
                 },
                 {
-                    src: "https://images.unsplash.com/photo-1567262439850-1d4dc1fefdd0?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-                    alt: "Image 2",
+                    src: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=200&auto=format&fit=crop&q=60",
+                    alt: "UX Design",
                 },
             ],
         },
         {
-            text: "Web design",
+            text: "Web Development",
             images: [
                 {
-                    src: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-                    alt: "Image 1",
+                    src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=200&auto=format&fit=crop&q=60",
+                    alt: "Development",
                 },
                 {
-                    src: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-                    alt: "Image 2",
+                    src: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=200&auto=format&fit=crop&q=60",
+                    alt: "Coding",
                 },
             ],
         },
         {
-            text: "Illustration",
+            text: "Brand Strategy",
             images: [
                 {
-                    src: "https://images.unsplash.com/photo-1575995872537-3793d29d972c?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-                    alt: "Image 1",
+                    src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=200&auto=format&fit=crop&q=60",
+                    alt: "Strategy",
                 },
                 {
-                    src: "https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-                    alt: "Image 2",
+                    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&auto=format&fit=crop&q=60",
+                    alt: "Branding",
                 },
             ],
         },
     ];
     return (
         <div className="flex flex-col gap-1 rounded-sm bg-background px-8 py-4">
-            <h3 className="text-sm font-black uppercase text-muted-foreground">Our services</h3>
+            <h3 className="text-sm font-black uppercase text-muted-foreground">Our Services</h3>
             {items.map((item, index) => (
                 <RevealImageListItem key={index} text={item.text} images={item.images} />
             ))}

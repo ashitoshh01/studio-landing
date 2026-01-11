@@ -98,14 +98,14 @@ export function Web3HeroAnimated() {
                     {/* We set opacity to 0 and apply the animation class to trigger the fade-in effect */}
                     <div className={`mx-auto text-center ${isMounted ? 'animate-fadeInUp' : 'opacity-0'}`}>
                         <span className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-[11px] uppercase tracking-wider text-white/70 ring-1 ring-white/10 backdrop-blur">
-                            <span className="h-1.5 w-1.5 rounded-full bg-white/70" /> web3 toolkit
+                            <span className="h-1.5 w-1.5 rounded-full bg-white/70" /> Digital Excellence
                         </span>
                         {/* Stagger animations with inline animation-delay */}
-                        <h1 style={{ animationDelay: '200ms' }} className={`mt-6 text-4xl font-bold tracking-tight md:text-6xl ${isMounted ? 'animate-fadeInUp' : 'opacity-0'}`}>Create and connect your world on web3</h1>
-                        <p style={{ animationDelay: '300ms' }} className={`mx-auto mt-5 max-w-2xl text-balance text-white/80 md:text-lg ${isMounted ? 'animate-fadeInUp' : 'opacity-0'}`}>The essential toolkit for sharing and funding anything—from your latest idea to the next big DAO.</p>
+                        <h1 style={{ animationDelay: '200ms' }} className={`mt-6 text-4xl font-bold tracking-tight md:text-6xl ${isMounted ? 'animate-fadeInUp' : 'opacity-0'}`}>We Build Digital Experiences That Scale</h1>
+                        <p style={{ animationDelay: '300ms' }} className={`mx-auto mt-5 max-w-2xl text-balance text-white/80 md:text-lg ${isMounted ? 'animate-fadeInUp' : 'opacity-0'}`}>Transform your vision into reality with cutting-edge web solutions. From stunning designs to powerful applications, we craft digital products that drive results.</p>
                         <div style={{ animationDelay: '400ms' }} className={`mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row ${isMounted ? 'animate-fadeInUp' : 'opacity-0'}`}>
-                            <a href="#" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black shadow transition hover:bg-white/90">Try Molithra</a>
-                            <a href="#" className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/90 backdrop-blur hover:border-white/40">Read More</a>
+                            <a href="#contact" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black shadow transition hover:bg-white/90">Start Your Project</a>
+                            <a href="#projects" className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/90 backdrop-blur hover:border-white/40">View Our Work</a>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@ export function Web3HeroAnimated() {
                 {/* ================== PARTNERS ================== */}
                 <div className="relative z-10 mx-auto mt-10 w-full max-w-6xl px-6 pb-24">
                     <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 opacity-70">
-                        {["git", "npm", "Lucidchart", "wrike", "jquery", "openstack", "servicenow", "Paysafe"].map((brand) => (
+                        {["React", "Next.js", "TypeScript", "Node.js", "Tailwind", "Vercel", "AWS", "Stripe"].map((brand) => (
                             <div key={brand} className="text-xs uppercase tracking-wider text-white/70">{brand}</div>
                         ))}
                     </div>

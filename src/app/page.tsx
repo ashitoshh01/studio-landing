@@ -38,9 +38,9 @@ export default function Home() {
         <section id="services" className="py-24 bg-black border-t border-zinc-900">
           <div className="container-wrapper">
             <div className="mb-16 text-center">
-              <h2 className="h2 text-white">What We Offer</h2>
+              <h2 className="h2 text-white">Our Expertise</h2>
               <p className="text-zinc-400 mt-4 text-lg">
-                Premium services tailored to your needs
+                Comprehensive digital solutions for modern businesses
               </p>
             </div>
 
@@ -54,9 +54,9 @@ export default function Home() {
         <section id="projects" className="py-24 bg-zinc-950 border-t border-zinc-900 overflow-x-hidden">
           <div className="container-wrapper">
             <div className="mb-16 text-center">
-              <h2 className="h2 text-white">Our Built Projects</h2>
+              <h2 className="h2 text-white">Featured Projects</h2>
               <p className="text-zinc-400 mt-4 text-lg">
-                See how we transform ideas into reality
+                Building digital products that make an impact
               </p>
             </div>
 
@@ -68,9 +68,9 @@ export default function Home() {
         <section className="py-24 bg-black border-t border-zinc-900">
           <div className="container-wrapper">
             <div className="mb-16 text-center">
-              <h2 className="h2 text-white">What Our Clients Say</h2>
+              <h2 className="h2 text-white">Client Success Stories</h2>
               <p className="text-zinc-400 mt-4 text-lg">
-                Trusted by professionals worldwide
+                Join hundreds of satisfied clients worldwide
               </p>
             </div>
 
@@ -81,10 +81,10 @@ export default function Home() {
         {/* --- CONTACT SECTION --- */}
         <section id="contact" className="py-24 bg-zinc-950 border-t border-zinc-900">
           <div className="container-wrapper max-w-2xl text-center">
-            <h2 className="h2 text-white mb-6">Ready to start?</h2>
+            <h2 className="h2 text-white mb-6">Let's Build Something Amazing</h2>
             <p className="text-zinc-400 mb-10">
-              You have the idea. We have the team. <br />
-              Fill the form below and let's get moving.
+              Ready to bring your vision to life? <br />
+              Get in touch and let's create something extraordinary together.
             </p>
 
             <div className="bg-zinc-900/50 p-8 rounded-3xl border border-zinc-800 text-left">
