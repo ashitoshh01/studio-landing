@@ -144,12 +144,12 @@ export const AnimatedReviewCards = ({
         update()
         mql.addEventListener?.("change", update)
         // Fallback for older browsers
-        // @ts-expect-error older Safari
+
         mql.addListener?.(update)
 
         return () => {
             mql.removeEventListener?.("change", update)
-            // @ts-expect-error older Safari
+
             mql.removeListener?.(update)
         }
     }, [])
