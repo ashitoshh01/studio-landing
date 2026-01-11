@@ -6,30 +6,11 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 
 interface ContactSectionProps {
-    /**
-     * The title for the contact section.
-     */
     title?: string;
-    /**
-     * The subtitle or main message for the introductory part.
-     */
     mainMessage?: string;
-    /**
-     * The contact email to display.
-     */
     contactEmail?: string;
-    /**
-     * Array of social media links. Each object should have an 'id', 'name', 'iconSrc', and 'href'.
-     */
     socialLinks?: Array<{ id: string; name: string; iconSrc: string; href: string }>;
-    /**
-     * Placeholder image for the background.
-     */
     backgroundImageSrc?: string;
-    /**
-     * Callback function when the form is submitted.
-     * @param data The form data.
-     */
     onSubmit?: (data: any) => void;
 }
 
@@ -75,7 +56,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         e.preventDefault();
         onSubmit?.(formData);
         console.log("Form submitted:", formData);
-        // Reset form after submission
         setFormData({
             name: '',
             email: '',
@@ -92,10 +72,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     ];
 
     return (
-        <section className="relative min-h-screen overflow-hidden bg-background">
+        <section className="relative min-h-screen overflow-hidden bg-black">
             {/* Background Image and Animated Bubbles */}
             <div
-                className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out"
+                className="absolute inset-0 bg-cover bg-center opacity-20 transition-all duration-500 ease-in-out"
                 style={{ backgroundImage: `url(${backgroundImageSrc})` }}
             >
                 {/* Animated Bubbles */}
@@ -118,43 +98,43 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </div>
 
             {/* Main Content Overlay */}
-            <div className="relative z-10 flex flex-col items-center justify-between w-full h-full p-4 md:p-8 lg:p-12">
-                {/* Main Section - Grid Layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-7xl p-4 md:p-8 rounded-xl flex-grow mt-16">
-                    {/* Left Side: Title */}
-                    <div className="flex flex-col justify-end p-4 lg:p-8">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight drop-shadow-lg max-w-lg">
+            <div className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen p-4 md:p-8 lg:p-12">
+                {/* Main Section - Vertical Layout */}
+                <div className="flex flex-col items-center gap-8 w-full max-w-4xl p-4 md:p-8 rounded-xl mt-16">
+                    {/* Title */}
+                    <div className="text-center w-full">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
                             {title}
                         </h1>
                     </div>
 
-                    {/* Right Side: Contact Form */}
-                    <div className="bg-background/90 p-6 md:p-8 rounded-lg shadow-xl border border-border backdrop-blur-sm">
-                        <h2 className="text-2xl font-bold text-foreground mb-6">{mainMessage}</h2>
+                    {/* Contact Form - Wider */}
+                    <div className="bg-zinc-900/80 p-6 md:p-10 rounded-lg shadow-xl border border-zinc-700 backdrop-blur-sm w-full">
+                        <h2 className="text-2xl font-bold text-white mb-6">{mainMessage}</h2>
 
                         {/* Email & Socials */}
                         <div className="mb-6">
-                            <p className="text-muted-foreground mb-2">Mail us at</p>
-                            <a href={`mailto:${contactEmail}`} className="text-primary hover:underline font-medium">
+                            <p className="text-zinc-400 mb-2">Mail us at</p>
+                            <a href={`mailto:${contactEmail}`} className="text-white hover:underline font-medium">
                                 {contactEmail}
                             </a>
                             <div className="flex items-center space-x-3 mt-4">
-                                <span className="text-muted-foreground">OR</span>
+                                <span className="text-zinc-400">OR</span>
                                 {socialLinks.map((link) => (
                                     <Button key={link.id} variant="outline" size="icon" asChild>
                                         <a href={link.href} aria-label={link.name}>
-                                            <img src={link.iconSrc} alt={link.name} className="h-4 w-4 dark:invert" />
+                                            <img src={link.iconSrc} alt={link.name} className="h-4 w-4 invert" />
                                         </a>
                                     </Button>
                                 ))}
                             </div>
                         </div>
 
-                        <hr className="my-6 border-border" />
+                        <hr className="my-6 border-zinc-700" />
 
                         {/* Form */}
                         <form onSubmit={handleSubmit} className="space-y-6">
-                            <p className="text-muted-foreground">Leave us a brief message</p>
+                            <p className="text-zinc-400">Leave us a brief message</p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                     <Label htmlFor="name">Your name</Label>
@@ -185,7 +165,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                             </div>
 
                             <div className="space-y-4">
-                                <p className="text-muted-foreground">I'm looking for...</p>
+                                <p className="text-zinc-400">I'm looking for...</p>
                                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                                     {projectTypeOptions.map((option) => (
                                         <div key={option} className="flex items-center space-x-2">
