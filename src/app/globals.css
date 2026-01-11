@@ -16,11 +16,28 @@
   --color-zinc-900: #18181b;
   --color-zinc-950: #09090b;
 
+  --color-primary: #ffffff;
+  --color-primary-foreground: #000000;
+
   --color-muted: #27272a;
   --color-muted-foreground: #a1a1aa;
+
   --color-card: #18181b;
   --color-card-foreground: #ffffff;
+
   --color-border: #3f3f46;
+  --color-input: #3f3f46;
+
+  --color-ring: #ffffff;
+
+  --color-accent: #27272a;
+  --color-accent-foreground: #ffffff;
+
+  --color-secondary: #27272a;
+  --color-secondary-foreground: #ffffff;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
 
   --font-sans: var(--font-inter);
 

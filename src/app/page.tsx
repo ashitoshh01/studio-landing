@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
-import { ContactForm } from '@/components/contact-form';
+import { ContactSection } from '@/components/ui/contact';
 import { Web3HeroAnimated } from '@/components/ui/animated-web3-landing-page';
 import { RevealImageList } from '@/components/ui/reveal-images';
 import { TestimonialsSection } from '@/components/testimonials-section';
@@ -79,19 +79,7 @@ export default function Home() {
         </section>
 
         {/* --- CONTACT SECTION --- */}
-        <section id="contact" className="py-24 bg-zinc-950 border-t border-zinc-900">
-          <div className="container-wrapper max-w-2xl text-center">
-            <h2 className="h2 text-white mb-6">Let's Build Something Amazing</h2>
-            <p className="text-zinc-400 mb-10">
-              Ready to bring your vision to life? <br />
-              Get in touch and let's create something extraordinary together.
-            </p>
-
-            <div className="bg-zinc-900/50 p-8 rounded-3xl border border-zinc-800 text-left">
-              <ContactForm />
-            </div>
-          </div>
-        </section>
+        <ContactSection />
       </main>
 
       <Footer />
