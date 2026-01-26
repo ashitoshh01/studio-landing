@@ -52,7 +52,7 @@ export function ProjectsSection() {
 
     return (
         <div className="w-full">
-            <div className="mx-auto w-full max-w-5xl p-8">
+            <div className="mx-auto w-full max-w-5xl px-0 md:p-8">
                 <CardStack
                     items={items}
                     initialIndex={0}
@@ -60,8 +60,8 @@ export function ProjectsSection() {
                     intervalMs={2000}
                     pauseOnHover
                     showDots
-                    cardWidth={isMobile ? 300 : 520}
-                    cardHeight={isMobile ? 250 : 320}
+                    cardWidth={isMobile ? 260 : 520}
+                    cardHeight={isMobile ? 240 : 320}
                 />
             </div>
         </div>
