@@ -1,6 +1,8 @@
 "use client";
 
 import { CardStack, CardStackItem } from "@/components/ui/card-stack";
+import { useMediaQuery } from "usehooks-ts";
+import { useState, useEffect } from "react";
 
 const items: CardStackItem[] = [
     {
@@ -41,6 +43,13 @@ const items: CardStackItem[] = [
 ];
 
 export function ProjectsSection() {
+    const [isMobile, setIsMobile] = useState(false);
+    const matchesMobile = useMediaQuery("(max-width: 640px)");
+
+    useEffect(() => {
+        setIsMobile(matchesMobile);
+    }, [matchesMobile]);
+
     return (
         <div className="w-full">
             <div className="mx-auto w-full max-w-5xl p-8">
@@ -51,6 +60,8 @@ export function ProjectsSection() {
                     intervalMs={2000}
                     pauseOnHover
                     showDots
+                    cardWidth={isMobile ? 300 : 520}
+                    cardHeight={isMobile ? 250 : 320}
                 />
             </div>
         </div>

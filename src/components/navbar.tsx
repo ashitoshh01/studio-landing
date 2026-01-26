@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Home, Briefcase, Mail, Users } from "lucide-react";
 import { ExpandableTabs } from "@/components/ui/expandable-tabs";
+import { MobileNav } from "@/components/mobile-nav";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
@@ -58,12 +60,19 @@ export function Navbar() {
         >
             <div className="container-wrapper relative flex items-center h-14">
                 {/* Branding - Left Aligned */}
-                <Link href="/" className="text-2xl font-bold text-white tracking-tighter hover:opacity-80 transition-opacity z-50">
-                    Wowgency
+                <Link href="/" className="hover:opacity-80 transition-opacity z-50">
+                    <Image
+                        src="/logo.png"
+                        alt="Logo"
+                        width={220}
+                        height={140}
+                        className="h-28 w-auto object-contain"
+                        priority
+                    />
                 </Link>
 
-                {/* Centered Navigation */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-fit hidden md:block">
+                {/* Centered Navigation (>900px) / Right Aligned (480px-900px) */}
+                <div className="hidden min-[480px]:block w-fit ml-auto min-[900px]:ml-0 min-[900px]:absolute min-[900px]:left-1/2 min-[900px]:top-1/2 min-[900px]:-translate-x-1/2 min-[900px]:-translate-y-1/2">
                     <ExpandableTabs
                         tabs={tabs}
                         activeColor="text-white"
@@ -72,13 +81,11 @@ export function Navbar() {
                     />
                 </div>
 
-                {/* Mobile Navigation - Right Aligned (visible only on mobile) */}
-                <div className="md:hidden ml-auto z-50">
-                    <ExpandableTabs
+                {/* Mobile Navigation - Right Aligned (visible only below 480px) */}
+                <div className="min-[480px]:hidden ml-auto z-50">
+                    <MobileNav
                         tabs={tabs}
-                        activeColor="text-white"
-                        className="border-none bg-transparent shadow-none scale-75 origin-right"
-                        onChange={handleTabChange}
+                        onTabSelect={handleTabChange}
                     />
                 </div>
             </div>

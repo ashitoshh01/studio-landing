@@ -52,7 +52,7 @@ export default function Home() {
         </section>
 
         {/* --- PROJECTS SECTION --- */}
-        <section id="projects" className="py-24 bg-zinc-950 border-t border-zinc-900 overflow-x-hidden">
+        <section id="projects" className="py-24 bg-zinc-950 border-t border-zinc-900">
           <div className="container-wrapper">
             <div className="mb-16 text-center">
               <h2 className="h2 text-white">Featured Projects</h2>

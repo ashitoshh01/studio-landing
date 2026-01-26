@@ -17,7 +17,7 @@ function RevealImageListItem({ text, images }: ShowImageListItemProps) {
 
     return (
         <div className="group relative h-fit w-fit overflow-visible py-8">
-            <h1 className="text-7xl font-black text-foreground transition-all duration-500 group-hover:opacity-40">
+            <h1 className="text-4xl md:text-7xl font-black text-foreground transition-all duration-500 group-hover:opacity-40">
                 {text}
             </h1>
             <div className={container}>
