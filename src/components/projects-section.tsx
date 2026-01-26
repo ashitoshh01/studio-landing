@@ -1,10 +1,15 @@
-"use client";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-import { CardStack, CardStackItem } from "@/components/ui/card-stack";
-import { useMediaQuery } from "usehooks-ts";
-import { useState, useEffect } from "react";
-
-const items: CardStackItem[] = [
+const items = [
     {
         id: 1,
         title: "E-Commerce Platform",
@@ -43,26 +48,34 @@ const items: CardStackItem[] = [
 ];
 
 export function ProjectsSection() {
-    const [isMobile, setIsMobile] = useState(false);
-    const matchesMobile = useMediaQuery("(max-width: 640px)");
-
-    useEffect(() => {
-        setIsMobile(matchesMobile);
-    }, [matchesMobile]);
-
     return (
         <div className="w-full">
-            <div className="mx-auto w-full max-w-5xl px-0 md:p-8">
-                <CardStack
-                    items={items}
-                    initialIndex={0}
-                    autoAdvance
-                    intervalMs={2000}
-                    pauseOnHover
-                    showDots
-                    cardWidth={isMobile ? 260 : 520}
-                    cardHeight={isMobile ? 240 : 320}
-                />
+            <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {items.map((item) => (
+                        <Link key={item.id} href={item.href} className="block group">
+                            <Card className="h-full bg-zinc-900 border-zinc-800 overflow-hidden hover:border-zinc-700 transition-colors duration-300">
+                                <div className="relative aspect-video w-full overflow-hidden">
+                                    <Image
+                                        src={item.imageSrc}
+                                        alt={item.title}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                </div>
+                                <CardHeader>
+                                    <div className="flex items-center justify-between">
+                                        <CardTitle className="text-white text-xl">{item.title}</CardTitle>
+                                        <ArrowUpRight className="text-zinc-500 w-5 h-5 group-hover:text-white transition-colors" />
+                                    </div>
+                                    <CardDescription className="text-zinc-400 mt-2">
+                                        {item.description}
+                                    </CardDescription>
+                                </CardHeader>
+                            </Card>
+                        </Link>
+                    ))}
+                </div>
             </div>
         </div>
     );
