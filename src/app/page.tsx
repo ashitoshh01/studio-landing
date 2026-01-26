@@ -8,7 +8,7 @@ import { Web3HeroAnimated } from '@/components/ui/animated-web3-landing-page';
 import { RevealImageList } from '@/components/ui/reveal-images';
 
 import { ProjectsSection } from '@/components/projects-section';
-import { Loading } from '@/components/ui/circle-unique-load';
+import Loader from '@/components/ui/loader';
 import { MarqueeTestimonials } from '@/components/ui/marquee-testimonials';
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
   }, []);
 
   if (isLoading) {
-    return <Loading screenHFull={true} />;
+    return <Loader screenHFull={true} />;
   }
 
   return (
