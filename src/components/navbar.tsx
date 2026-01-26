@@ -10,11 +10,44 @@ import { useEffect, useState } from "react";
 
 export function Navbar() {
     const [scrolled, setScrolled] = useState(false);
+    const [activeTab, setActiveTab] = useState<number | null>(0);
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
+
+            // Determine active section based on scroll position
+            const scrollPosition = window.scrollY + 100; // Offset for better detection
+
+            const sections = [
+                { id: 'top', tabIndex: 0 },
+                { id: 'services', tabIndex: 1 },
+                { id: 'projects', tabIndex: 3 },
+                { id: 'contact', tabIndex: 4 },
+            ];
+
+            // Default to Home if at top
+            if (scrollPosition < 300) {
+                setActiveTab(0);
+                return;
+            }
+
+            for (const section of sections) {
+                if (section.id === 'top') continue; // Handled above
+
+                const element = document.getElementById(section.id);
+                if (element) {
+                    const offsetTop = element.offsetTop;
+                    const offsetBottom = offsetTop + element.offsetHeight;
+
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+                        setActiveTab(section.tabIndex);
+                        break;
+                    }
+                }
+            }
         };
+
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
@@ -75,6 +108,7 @@ export function Navbar() {
                 <div className="hidden min-[480px]:block w-fit ml-auto min-[900px]:ml-0 min-[900px]:absolute min-[900px]:left-1/2 min-[900px]:top-1/2 min-[900px]:-translate-x-1/2 min-[900px]:-translate-y-1/2">
                     <ExpandableTabs
                         tabs={tabs}
+                        activeTabIndex={activeTab}
                         activeColor="text-white"
                         className="border-none bg-transparent shadow-none"
                         onChange={handleTabChange}

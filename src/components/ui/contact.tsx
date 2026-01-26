@@ -72,7 +72,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     ];
 
     return (
-        <section className="relative min-h-screen overflow-hidden bg-black">
+        <section id="contact" className="relative min-h-screen overflow-hidden bg-black">
             {/* Background Image and Animated Bubbles */}
             <div
                 className="absolute inset-0 bg-cover bg-center opacity-20 transition-all duration-500 ease-in-out"
