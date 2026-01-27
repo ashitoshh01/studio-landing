@@ -111,7 +111,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     </div>
 
                     {/* Contact Form - Wider */}
-                    <div className="relative bg-zinc-900/80 p-6 md:p-10 rounded-2xl shadow-2xl border border-white/10 backdrop-blur-xl w-full overflow-hidden group">
+                    <div className="relative bg-zinc-900/80 p-6 md:p-10 rounded-2xl shadow-2xl border border-white/10 backdrop-blur-xl w-full group">
                         {/* Glow Effect - Subtle White/Zinc */}
                         <div className="absolute -top-20 -right-20 w-64 h-64 bg-zinc-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-zinc-500/20 transition-all duration-700" />
                         <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none group-hover:bg-white/10 transition-all duration-700" />
@@ -233,8 +233,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                         </button>
 
                                         {isDropdownOpen && (
-                                            <div className="absolute z-50 mt-2 w-full rounded-xl border border-white/10 bg-zinc-900 shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-                                                <div className="max-h-60 overflow-y-auto p-2">
+                                            <div className="mt-2 w-full rounded-xl border border-white/10 bg-zinc-900/50 overflow-hidden animate-in slide-in-from-top-2 fade-in duration-200">
+                                                <div className="p-2 grid grid-cols-1 gap-1">
                                                     {projectTypeOptions.map((option) => (
                                                         <div
                                                             key={option}
