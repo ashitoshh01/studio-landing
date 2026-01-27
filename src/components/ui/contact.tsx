@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
+import { ChevronDown } from 'lucide-react';
 
 interface ContactSectionProps {
     title?: string;
@@ -23,7 +24,7 @@ const defaultSocialLinks = [
 export const ContactSection: React.FC<ContactSectionProps> = ({
     title = "Let's Build Something Amazing",
     mainMessage = "Let's talk! 👋",
-    contactEmail = "hello@wowgency.com",
+    contactEmail = "hello@apixbuild.com",
     socialLinks = defaultSocialLinks,
     backgroundImageSrc = "https://images.unsplash.com/photo-1557683316-973673baf926?w=1200&auto=format&fit=crop&q=80",
     onSubmit,
@@ -35,6 +36,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         message: '',
         projectType: [] as string[],
     });
+    const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -109,7 +111,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     </div>
 
                     {/* Contact Form - Wider */}
-                    <div className="bg-zinc-900/80 p-6 md:p-10 rounded-lg shadow-xl border border-zinc-700 backdrop-blur-sm w-full">
+                    <div className="bg-black p-6 md:p-10 rounded-lg shadow-xl border border-zinc-700 backdrop-blur-sm w-full">
                         <h2 className="text-2xl font-bold text-white mb-6">{mainMessage}</h2>
 
                         {/* Email & Socials */}
@@ -118,16 +120,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                             <a href={`mailto:${contactEmail}`} className="text-white hover:underline font-medium">
                                 {contactEmail}
                             </a>
-                            <div className="flex items-center space-x-3 mt-4">
-                                <span className="text-zinc-400">OR</span>
-                                {socialLinks.map((link) => (
-                                    <Button key={link.id} variant="outline" size="icon" asChild>
-                                        <a href={link.href} aria-label={link.name}>
-                                            <img src={link.iconSrc} alt={link.name} className="h-4 w-4 invert" />
-                                        </a>
-                                    </Button>
-                                ))}
-                            </div>
+
                         </div>
 
                         <hr className="my-6 border-zinc-700" />
@@ -166,7 +159,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
                             <div className="space-y-4">
                                 <p className="text-zinc-400">I'm looking for...</p>
-                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-[500px]:hidden">
                                     {projectTypeOptions.map((option) => (
                                         <div key={option} className="flex items-center space-x-2">
                                             <Checkbox
@@ -179,6 +172,36 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                             </Label>
                                         </div>
                                     ))}
+                                </div>
+                                <div className="hidden max-[500px]:block relative">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                        className="flex h-10 w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-700"
+                                    >
+                                        <span className={formData.projectType.length > 0 ? "text-white" : ""}>
+                                            {formData.projectType.length > 0
+                                                ? `${formData.projectType.length} selected`
+                                                : "Select project types"}
+                                        </span>
+                                        <ChevronDown className={`h-4 w-4 opacity-50 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                                    </button>
+                                    {isDropdownOpen && (
+                                        <div className="mt-1 w-full rounded-md border border-zinc-800 bg-zinc-950 p-2 shadow-lg">
+                                            {projectTypeOptions.map((option) => (
+                                                <div key={option} className="flex items-center space-x-2 p-2 hover:bg-zinc-900 rounded">
+                                                    <Checkbox
+                                                        id={`mobile-${option.replace(/\s/g, '-').toLowerCase()}`}
+                                                        checked={formData.projectType.includes(option)}
+                                                        onCheckedChange={(checked) => handleCheckboxChange(option, checked as boolean)}
+                                                    />
+                                                    <Label htmlFor={`mobile-${option.replace(/\s/g, '-').toLowerCase()}`} className="text-sm font-normal cursor-pointer flex-1 text-white">
+                                                        {option}
+                                                    </Label>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
 

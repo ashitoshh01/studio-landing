@@ -5,10 +5,10 @@ export function Footer() {
     return (
         <footer className="bg-black border-t border-zinc-900 py-12 md:py-16">
             <div className="container-wrapper">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                    <div className="col-span-1 md:col-span-2">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
+                    <div className="col-span-2 md:col-span-2">
                         <Link href="/" className="text-2xl font-bold text-white tracking-tighter mb-4 block">
-                            Wowgency
+                            ApixBuild
                         </Link>
                         <p className="text-zinc-500 max-w-sm mb-6">
                             Empowering brands with cutting-edge digital solutions. We build immersive experiences that drive growth and engagement.
@@ -29,7 +29,7 @@ export function Footer() {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="col-span-1">
                         <h4 className="font-semibold text-white mb-6">Company</h4>
                         <ul className="space-y-4">
                             <li>
@@ -47,7 +47,7 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    <div>
+                    <div className="col-span-1">
                         <h4 className="font-semibold text-white mb-6">Legal</h4>
                         <ul className="space-y-4">
                             <li>
