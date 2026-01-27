@@ -65,7 +65,7 @@ export function Footer() {
 
                 <div className="border-t border-zinc-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-zinc-600 text-sm">
-                        © {new Date().getFullYear()} Wowgency. All rights reserved.
+                        © {new Date().getFullYear()} ApixBuild. All rights reserved.
                     </p>
                     <div className="flex gap-8">
                         <Link href="#" className="text-zinc-600 hover:text-zinc-400 text-sm transition-colors">

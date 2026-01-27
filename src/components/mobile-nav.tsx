@@ -22,11 +22,14 @@ export function MobileNav({ tabs, onTabSelect }: MobileNavProps) {
     useEffect(() => {
         if (open) {
             document.body.style.overflow = "hidden";
+            document.documentElement.style.overflow = "hidden";
         } else {
-            document.body.style.overflow = "unset";
+            document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
         }
         return () => {
-            document.body.style.overflow = "unset";
+            document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
         };
     }, [open]);
 
@@ -100,7 +103,7 @@ export function MobileNav({ tabs, onTabSelect }: MobileNavProps) {
                             </nav>
 
                             <div className="mt-auto text-center text-xs text-white/30">
-                                &copy; 2024 Wowgency
+                                &copy; 2026 ApixBuild
                             </div>
                         </motion.div>
                     </>
