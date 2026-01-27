@@ -23,9 +23,6 @@ export function Footer() {
                             <Link href="#" className="text-zinc-400 hover:text-white transition-colors">
                                 <Linkedin size={20} />
                             </Link>
-                            <Link href="#" className="text-zinc-400 hover:text-white transition-colors">
-                                <Github size={20} />
-                            </Link>
                         </div>
                     </div>
 

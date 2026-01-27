@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Mail } from 'lucide-react';
 
 interface ContactSectionProps {
     title?: string;
@@ -111,104 +111,170 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     </div>
 
                     {/* Contact Form - Wider */}
-                    <div className="bg-black p-6 md:p-10 rounded-lg shadow-xl border border-zinc-700 backdrop-blur-sm w-full">
-                        <h2 className="text-2xl font-bold text-white mb-6">{mainMessage}</h2>
+                    <div className="relative bg-zinc-900/80 p-6 md:p-10 rounded-2xl shadow-2xl border border-white/10 backdrop-blur-xl w-full overflow-hidden group">
+                        {/* Glow Effect - Subtle White/Zinc */}
+                        <div className="absolute -top-20 -right-20 w-64 h-64 bg-zinc-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-zinc-500/20 transition-all duration-700" />
+                        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none group-hover:bg-white/10 transition-all duration-700" />
 
-                        {/* Email & Socials */}
-                        <div className="mb-6">
-                            <p className="text-zinc-400 mb-2">Mail us at</p>
-                            <a href={`mailto:${contactEmail}`} className="text-white hover:underline font-medium">
-                                {contactEmail}
-                            </a>
+                        <div className="relative z-10">
+                            <h2 className="text-3xl font-bold text-white mb-2">{mainMessage}</h2>
+                            <p className="text-zinc-400 mb-8">We'd love to hear from you. Fill out the form below.</p>
 
-                        </div>
+                            {/* Email */}
+                            <div className="mb-8 p-4 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between group/email transition-colors hover:bg-black/60 hover:border-white/10">
+                                <div>
+                                    <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold mb-1">Direct Mail</p>
+                                    <a href={`mailto:${contactEmail}`} className="text-white text-lg font-medium hover:text-zinc-200 transition-colors">
+                                        {contactEmail}
+                                    </a>
+                                </div>
+                                <div className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center group-hover/email:bg-white/10 group-hover/email:text-white transition-all text-zinc-400">
+                                    <Mail className="w-5 h-5" />
+                                </div>
+                            </div>
 
-                        <hr className="my-6 border-zinc-700" />
+                            {/* Form */}
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <Label htmlFor="name" className="text-zinc-300">Name</Label>
+                                        <Input
+                                            id="name"
+                                            name="name"
+                                            placeholder="John Doe"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            required
+                                            className="bg-black/50 border-white/10 focus:border-white/25 focus:ring-white/10 h-12 rounded-lg transition-all text-white placeholder:text-zinc-600"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="email" className="text-zinc-300">Email</Label>
+                                        <Input
+                                            id="email"
+                                            name="email"
+                                            type="email"
+                                            placeholder="john@example.com"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            required
+                                            className="bg-black/50 border-white/10 focus:border-white/25 focus:ring-white/10 h-12 rounded-lg transition-all text-white placeholder:text-zinc-600"
+                                        />
+                                    </div>
+                                </div>
 
-                        {/* Form */}
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <p className="text-zinc-400">Leave us a brief message</p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
-                                    <Label htmlFor="name">Your name</Label>
-                                    <Input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required />
+                                    <Label htmlFor="phone" className="text-zinc-300">Phone (Optional)</Label>
+                                    <Input
+                                        id="phone"
+                                        name="phone"
+                                        type="tel"
+                                        placeholder="+1 (555) 000-0000"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        className="bg-black/50 border-white/10 focus:border-white/25 focus:ring-white/10 h-12 rounded-lg transition-all text-white placeholder:text-zinc-600"
+                                    />
                                 </div>
+
                                 <div className="space-y-2">
-                                    <Label htmlFor="email">Email</Label>
-                                    <Input id="email" name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+                                    <Label htmlFor="message" className="text-zinc-300">Project Details</Label>
+                                    <Textarea
+                                        id="message"
+                                        name="message"
+                                        placeholder="Tell us about your project goals, timeline, and budget..."
+                                        className="min-h-[120px] bg-black/50 border-white/10 focus:border-white/25 focus:ring-white/10 rounded-lg resize-none transition-all text-white placeholder:text-zinc-600"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        required
+                                    />
                                 </div>
-                            </div>
 
-                            <div className="space-y-2">
-                                <Label htmlFor="phone">Phone Number</Label>
-                                <Input id="phone" name="phone" type="tel" placeholder="+1 (555) 000-0000" value={formData.phone} onChange={handleChange} required />
-                            </div>
+                                <div className="space-y-4 pt-2">
+                                    <Label className="text-zinc-300 block">I'm interested in...</Label>
 
-                            <div className="space-y-2">
-                                <Label htmlFor="message">Briefly describe your project idea...</Label>
-                                <Textarea
-                                    id="message"
-                                    name="message"
-                                    placeholder="Briefly describe your project idea..."
-                                    className="min-h-[80px]"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </div>
+                                    {/* Desktop Grid Layout (visible > 550px) */}
+                                    <div className="hidden min-[550px]:grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                        {projectTypeOptions.map((option) => (
+                                            <div key={option} className="relative">
+                                                <Checkbox
+                                                    id={option.replace(/\s/g, '-').toLowerCase()}
+                                                    checked={formData.projectType.includes(option)}
+                                                    onCheckedChange={(checked) => handleCheckboxChange(option, checked as boolean)}
+                                                    className="peer sr-only"
+                                                />
+                                                <Label
+                                                    htmlFor={option.replace(/\s/g, '-').toLowerCase()}
+                                                    className={`
+                                                        flex items-center justify-center text-center px-4 py-3 rounded-xl border cursor-pointer transition-all duration-200 text-sm font-medium h-full
+                                                        ${formData.projectType.includes(option)
+                                                            ? 'bg-zinc-100 border-zinc-100 text-black shadow-[0_0_15px_rgba(255,255,255,0.1)]'
+                                                            : 'bg-black/40 border-white/5 text-zinc-400 hover:bg-black/60 hover:text-zinc-200'}
+                                                    `}
+                                                >
+                                                    {option}
+                                                </Label>
+                                            </div>
+                                        ))}
+                                    </div>
 
-                            <div className="space-y-4">
-                                <p className="text-zinc-400">I'm looking for...</p>
-                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-[500px]:hidden">
-                                    {projectTypeOptions.map((option) => (
-                                        <div key={option} className="flex items-center space-x-2">
-                                            <Checkbox
-                                                id={option.replace(/\s/g, '-').toLowerCase()}
-                                                checked={formData.projectType.includes(option)}
-                                                onCheckedChange={(checked) => handleCheckboxChange(option, checked as boolean)}
-                                            />
-                                            <Label htmlFor={option.replace(/\s/g, '-').toLowerCase()} className="text-sm font-normal">
-                                                {option}
-                                            </Label>
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="hidden max-[500px]:block relative">
-                                    <button
-                                        type="button"
-                                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                                        className="flex h-10 w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-700"
-                                    >
-                                        <span className={formData.projectType.length > 0 ? "text-white" : ""}>
-                                            {formData.projectType.length > 0
-                                                ? `${formData.projectType.length} selected`
-                                                : "Select project types"}
-                                        </span>
-                                        <ChevronDown className={`h-4 w-4 opacity-50 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
-                                    </button>
-                                    {isDropdownOpen && (
-                                        <div className="mt-1 w-full rounded-md border border-zinc-800 bg-zinc-950 p-2 shadow-lg">
-                                            {projectTypeOptions.map((option) => (
-                                                <div key={option} className="flex items-center space-x-2 p-2 hover:bg-zinc-900 rounded">
-                                                    <Checkbox
-                                                        id={`mobile-${option.replace(/\s/g, '-').toLowerCase()}`}
-                                                        checked={formData.projectType.includes(option)}
-                                                        onCheckedChange={(checked) => handleCheckboxChange(option, checked as boolean)}
-                                                    />
-                                                    <Label htmlFor={`mobile-${option.replace(/\s/g, '-').toLowerCase()}`} className="text-sm font-normal cursor-pointer flex-1 text-white">
-                                                        {option}
-                                                    </Label>
+                                    {/* Mobile Dropdown Layout (visible < 550px) */}
+                                    <div className="block min-[550px]:hidden relative">
+                                        <button
+                                            type="button"
+                                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                            className="flex h-14 w-full items-center justify-between rounded-xl border border-white/10 bg-black/40 px-4 text-left text-sm transition-colors hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-zinc-500/50"
+                                        >
+                                            <span className={formData.projectType.length > 0 ? "text-white font-medium" : "text-zinc-400"}>
+                                                {formData.projectType.length > 0
+                                                    ? `${formData.projectType.length} selected`
+                                                    : "Select project types"}
+                                            </span>
+                                            <ChevronDown className={`h-4 w-4 text-zinc-400 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                                        </button>
+
+                                        {isDropdownOpen && (
+                                            <div className="absolute z-50 mt-2 w-full rounded-xl border border-white/10 bg-zinc-900 shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+                                                <div className="max-h-60 overflow-y-auto p-2">
+                                                    {projectTypeOptions.map((option) => (
+                                                        <div
+                                                            key={option}
+                                                            className={`
+                                                                flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-colors
+                                                                ${formData.projectType.includes(option) ? 'bg-white/10' : 'hover:bg-white/5'}
+                                                            `}
+                                                            onClick={() => handleCheckboxChange(option, !formData.projectType.includes(option))}
+                                                        >
+                                                            <div className={`
+                                                                h-5 w-5 rounded-md border flex items-center justify-center transition-all
+                                                                ${formData.projectType.includes(option)
+                                                                    ? 'bg-white border-white'
+                                                                    : 'border-zinc-600'}
+                                                            `}>
+                                                                {formData.projectType.includes(option) && (
+                                                                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M1 4L3.5 6.5L9 1" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                                    </svg>
+                                                                )}
+                                                            </div>
+                                                            <span className={`text-sm ${formData.projectType.includes(option) ? 'text-white font-medium' : 'text-zinc-400'}`}>
+                                                                {option}
+                                                            </span>
+                                                        </div>
+                                                    ))}
                                                 </div>
-                                            ))}
-                                        </div>
-                                    )}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
 
-                            <Button type="submit" className="w-full">
-                                Send a message
-                            </Button>
-                        </form>
+                                <Button
+                                    type="submit"
+                                    className="w-full h-14 text-lg font-semibold bg-white text-black hover:bg-zinc-200 rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 transform hover:-translate-y-1"
+                                >
+                                    Send Message
+                                </Button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

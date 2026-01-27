@@ -15,8 +15,18 @@ function RevealImageListItem({ text, images }: ShowImageListItemProps) {
     const effect =
         "relative duration-500 delay-100 shadow-none group-hover:shadow-xl scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 group-hover:w-full group-hover:h-full w-16 h-16 overflow-hidden transition-all rounded-md";
 
+    const handleScrollToContact = () => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
-        <div className="group relative h-fit w-fit overflow-visible py-8">
+        <div
+            onClick={handleScrollToContact}
+            className="group relative h-fit w-fit overflow-visible py-8 cursor-pointer"
+        >
             <h1 className="text-4xl md:text-7xl font-black text-foreground transition-all duration-500 group-hover:opacity-40">
                 {text}
             </h1>
@@ -77,6 +87,19 @@ function RevealImageList() {
                 {
                     src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&auto=format&fit=crop&q=60",
                     alt: "Branding",
+                },
+            ],
+        },
+        {
+            text: "Social Media Management",
+            images: [
+                {
+                    src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&auto=format&fit=crop&q=60",
+                    alt: "Social Analytics",
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&auto=format&fit=crop&q=60",
+                    alt: "Growth Charts",
                 },
             ],
         },
