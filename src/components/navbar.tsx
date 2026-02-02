@@ -95,7 +95,7 @@ export function Navbar() {
                 {/* Branding - Left Aligned */}
                 <Link href="/" className="hover:opacity-80 transition-opacity z-50">
                     <Image
-                        src="/logo.png"
+                        src="/logo-new.png"
                         alt="Logo"
                         width={220}
                         height={140}
