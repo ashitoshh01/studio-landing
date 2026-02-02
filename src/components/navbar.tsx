@@ -87,7 +87,7 @@ export function Navbar() {
             className={cn(
                 "fixed top-0 left-0 right-0 z-[999] transition-all duration-300",
                 scrolled
-                    ? "bg-black/80 backdrop-blur-md border-b border-white/10 py-2"
+                    ? "bg-zinc-200/40 backdrop-blur-xl border-b border-zinc-200/50 py-2 shadow-sm"
                     : "bg-transparent py-4"
             )}
         >
@@ -109,7 +109,7 @@ export function Navbar() {
                     <ExpandableTabs
                         tabs={tabs}
                         activeTabIndex={activeTab}
-                        activeColor="text-white"
+                        activeColor="text-zinc-900"
                         className="border-none bg-transparent shadow-none"
                         onChange={handleTabChange}
                     />

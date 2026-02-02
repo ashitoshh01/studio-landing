@@ -24,7 +24,7 @@ const defaultSocialLinks = [
 export const ContactSection: React.FC<ContactSectionProps> = ({
     title = "Let's Build Something Amazing",
     mainMessage = "Let's talk! 👋",
-    contactEmail = "hello@apixbuild.com",
+    contactEmail = "apixbuild@gmail.com",
     socialLinks = defaultSocialLinks,
     backgroundImageSrc = "https://images.unsplash.com/photo-1557683316-973673baf926?w=1200&auto=format&fit=crop&q=80",
     onSubmit,
@@ -74,10 +74,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     ];
 
     return (
-        <section id="contact" className="relative min-h-screen overflow-hidden bg-black">
+        <section id="contact" className="relative min-h-screen overflow-hidden bg-zinc-50">
             {/* Background Image and Animated Bubbles */}
             <div
-                className="absolute inset-0 bg-cover bg-center opacity-20 transition-all duration-500 ease-in-out"
+                className="absolute inset-0 bg-cover bg-center opacity-5 transition-all duration-500 ease-in-out"
                 style={{ backgroundImage: `url(${backgroundImageSrc})` }}
             >
                 {/* Animated Bubbles */}
@@ -85,7 +85,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     {Array.from({ length: 15 }).map((_, i) => (
                         <div
                             key={i}
-                            className="absolute bg-white/20 rounded-full animate-bubble opacity-0"
+                            className="absolute bg-zinc-900/5 rounded-full animate-bubble opacity-0"
                             style={{
                                 width: `${Math.random() * 20 + 10}px`,
                                 height: `${Math.random() * 20 + 10}px`,
@@ -105,30 +105,30 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 <div className="flex flex-col items-center gap-8 w-full max-w-4xl p-4 md:p-8 rounded-xl mt-16">
                     {/* Title */}
                     <div className="text-center w-full">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-zinc-900 leading-tight drop-shadow-sm">
                             {title}
                         </h1>
                     </div>
 
                     {/* Contact Form - Wider */}
-                    <div className="relative bg-zinc-900/80 p-6 md:p-10 rounded-2xl shadow-2xl border border-white/10 backdrop-blur-xl w-full group">
-                        {/* Glow Effect - Subtle White/Zinc */}
-                        <div className="absolute -top-20 -right-20 w-64 h-64 bg-zinc-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-zinc-500/20 transition-all duration-700" />
-                        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none group-hover:bg-white/10 transition-all duration-700" />
+                    <div className="relative bg-white/80 p-6 md:p-10 rounded-2xl shadow-xl border border-zinc-200 backdrop-blur-xl w-full group">
+                        {/* Glow Effect - Subtle Zinc */}
+                        <div className="absolute -top-20 -right-20 w-64 h-64 bg-zinc-200/50 rounded-full blur-3xl pointer-events-none group-hover:bg-zinc-300/50 transition-all duration-700" />
+                        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-zinc-100/50 rounded-full blur-3xl pointer-events-none group-hover:bg-zinc-200/50 transition-all duration-700" />
 
                         <div className="relative z-10">
-                            <h2 className="text-3xl font-bold text-white mb-2">{mainMessage}</h2>
-                            <p className="text-zinc-400 mb-8">We'd love to hear from you. Fill out the form below.</p>
+                            <h2 className="text-3xl font-bold text-zinc-900 mb-2">{mainMessage}</h2>
+                            <p className="text-zinc-500 mb-8">We'd love to hear from you. Fill out the form below.</p>
 
                             {/* Email */}
-                            <div className="mb-8 p-4 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between group/email transition-colors hover:bg-black/60 hover:border-white/10">
+                            <div className="mb-8 p-4 rounded-xl bg-zinc-50 border border-zinc-200 flex items-center justify-between group/email transition-colors hover:bg-zinc-100 hover:border-zinc-300">
                                 <div>
                                     <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold mb-1">Direct Mail</p>
-                                    <a href={`mailto:${contactEmail}`} className="text-white text-lg font-medium hover:text-zinc-200 transition-colors">
+                                    <a href={`mailto:${contactEmail}`} className="text-zinc-900 text-lg font-medium hover:text-zinc-700 transition-colors">
                                         {contactEmail}
                                     </a>
                                 </div>
-                                <div className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center group-hover/email:bg-white/10 group-hover/email:text-white transition-all text-zinc-400">
+                                <div className="h-10 w-10 rounded-full bg-zinc-200/50 flex items-center justify-center group-hover/email:bg-zinc-200 group-hover/email:text-zinc-900 transition-all text-zinc-500">
                                     <Mail className="w-5 h-5" />
                                 </div>
                             </div>
@@ -137,52 +137,52 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
-                                        <Label htmlFor="name" className="text-zinc-300">Name</Label>
+                                        <Label htmlFor="name" className="text-zinc-700">Name</Label>
                                         <Input
                                             id="name"
                                             name="name"
-                                            placeholder="John Doe"
+                                            placeholder="Rahul Sharma"
                                             value={formData.name}
                                             onChange={handleChange}
                                             required
-                                            className="bg-black/50 border-white/10 focus:border-white/25 focus:ring-white/10 h-12 rounded-lg transition-all text-white placeholder:text-zinc-600"
+                                            className="bg-white border-zinc-200 focus:border-zinc-400 focus:ring-zinc-200 h-12 rounded-lg transition-all text-zinc-900 placeholder:text-zinc-400"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <Label htmlFor="email" className="text-zinc-300">Email</Label>
+                                        <Label htmlFor="email" className="text-zinc-700">Email</Label>
                                         <Input
                                             id="email"
                                             name="email"
                                             type="email"
-                                            placeholder="john@example.com"
+                                            placeholder="rahul.sharma@example.com"
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
-                                            className="bg-black/50 border-white/10 focus:border-white/25 focus:ring-white/10 h-12 rounded-lg transition-all text-white placeholder:text-zinc-600"
+                                            className="bg-white border-zinc-200 focus:border-zinc-400 focus:ring-zinc-200 h-12 rounded-lg transition-all text-zinc-900 placeholder:text-zinc-400"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <Label htmlFor="phone" className="text-zinc-300">Phone (Optional)</Label>
+                                    <Label htmlFor="phone" className="text-zinc-700">Phone (Optional)</Label>
                                     <Input
                                         id="phone"
                                         name="phone"
                                         type="tel"
-                                        placeholder="+1 (555) 000-0000"
+                                        placeholder="+91 98765 43210"
                                         value={formData.phone}
                                         onChange={handleChange}
-                                        className="bg-black/50 border-white/10 focus:border-white/25 focus:ring-white/10 h-12 rounded-lg transition-all text-white placeholder:text-zinc-600"
+                                        className="bg-white border-zinc-200 focus:border-zinc-400 focus:ring-zinc-200 h-12 rounded-lg transition-all text-zinc-900 placeholder:text-zinc-400"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <Label htmlFor="message" className="text-zinc-300">Project Details</Label>
+                                    <Label htmlFor="message" className="text-zinc-700">Project Details</Label>
                                     <Textarea
                                         id="message"
                                         name="message"
                                         placeholder="Tell us about your project goals, timeline, and budget..."
-                                        className="min-h-[120px] bg-black/50 border-white/10 focus:border-white/25 focus:ring-white/10 rounded-lg resize-none transition-all text-white placeholder:text-zinc-600"
+                                        className="min-h-[120px] bg-white border-zinc-200 focus:border-zinc-400 focus:ring-zinc-200 rounded-lg resize-none transition-all text-zinc-900 placeholder:text-zinc-400"
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
@@ -190,7 +190,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                 </div>
 
                                 <div className="space-y-4 pt-2">
-                                    <Label className="text-zinc-300 block">I'm interested in...</Label>
+                                    <Label className="text-zinc-700 block">I'm interested in...</Label>
 
                                     {/* Desktop Grid Layout (visible > 550px) */}
                                     <div className="hidden min-[550px]:grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -207,8 +207,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                                     className={`
                                                         flex items-center justify-center text-center px-4 py-3 rounded-xl border cursor-pointer transition-all duration-200 text-sm font-medium h-full
                                                         ${formData.projectType.includes(option)
-                                                            ? 'bg-zinc-100 border-zinc-100 text-black shadow-[0_0_15px_rgba(255,255,255,0.1)]'
-                                                            : 'bg-black/40 border-white/5 text-zinc-400 hover:bg-black/60 hover:text-zinc-200'}
+                                                            ? 'bg-zinc-900 border-zinc-900 text-white shadow-lg'
+                                                            : 'bg-white border-zinc-200 text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900'}
                                                     `}
                                                 >
                                                     {option}
@@ -222,9 +222,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                         <button
                                             type="button"
                                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                                            className="flex h-14 w-full items-center justify-between rounded-xl border border-white/10 bg-black/40 px-4 text-left text-sm transition-colors hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-zinc-500/50"
+                                            className="flex h-14 w-full items-center justify-between rounded-xl border border-zinc-200 bg-white px-4 text-left text-sm transition-colors hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-zinc-200"
                                         >
-                                            <span className={formData.projectType.length > 0 ? "text-white font-medium" : "text-zinc-400"}>
+                                            <span className={formData.projectType.length > 0 ? "text-zinc-900 font-medium" : "text-zinc-400"}>
                                                 {formData.projectType.length > 0
                                                     ? `${formData.projectType.length} selected`
                                                     : "Select project types"}
@@ -233,30 +233,30 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                         </button>
 
                                         {isDropdownOpen && (
-                                            <div className="mt-2 w-full rounded-xl border border-white/10 bg-zinc-900/50 overflow-hidden animate-in slide-in-from-top-2 fade-in duration-200">
+                                            <div className="mt-2 w-full rounded-xl border border-zinc-200 bg-white shadow-lg overflow-hidden animate-in slide-in-from-top-2 fade-in duration-200">
                                                 <div className="p-2 grid grid-cols-1 gap-1">
                                                     {projectTypeOptions.map((option) => (
                                                         <div
                                                             key={option}
                                                             className={`
                                                                 flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-colors
-                                                                ${formData.projectType.includes(option) ? 'bg-white/10' : 'hover:bg-white/5'}
+                                                                ${formData.projectType.includes(option) ? 'bg-zinc-100' : 'hover:bg-zinc-50'}
                                                             `}
                                                             onClick={() => handleCheckboxChange(option, !formData.projectType.includes(option))}
                                                         >
                                                             <div className={`
                                                                 h-5 w-5 rounded-md border flex items-center justify-center transition-all
                                                                 ${formData.projectType.includes(option)
-                                                                    ? 'bg-white border-white'
-                                                                    : 'border-zinc-600'}
+                                                                    ? 'bg-zinc-900 border-zinc-900'
+                                                                    : 'border-zinc-300 bg-white'}
                                                             `}>
                                                                 {formData.projectType.includes(option) && (
                                                                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M1 4L3.5 6.5L9 1" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                                        <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                                                     </svg>
                                                                 )}
                                                             </div>
-                                                            <span className={`text-sm ${formData.projectType.includes(option) ? 'text-white font-medium' : 'text-zinc-400'}`}>
+                                                            <span className={`text-sm ${formData.projectType.includes(option) ? 'text-zinc-900 font-medium' : 'text-zinc-500'}`}>
                                                                 {option}
                                                             </span>
                                                         </div>
@@ -269,7 +269,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
                                 <Button
                                     type="submit"
-                                    className="w-full h-14 text-lg font-semibold bg-white text-black hover:bg-zinc-200 rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 transform hover:-translate-y-1"
+                                    className="w-full h-14 text-lg font-semibold bg-zinc-900 text-white hover:bg-zinc-800 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1"
                                 >
                                     Send Message
                                 </Button>

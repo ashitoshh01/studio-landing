@@ -84,18 +84,18 @@ const VerifyIcon = () => (
 );
 
 const Card = ({ card }: { card: CardT }) => (
-    <div className="p-4 rounded-xl mx-4 shadow-lg hover:shadow-xl transition-all duration-200 w-80 shrink-0 bg-zinc-900 border border-zinc-800">
+    <div className="p-4 rounded-xl mx-4 shadow-sm hover:shadow-md transition-all duration-200 w-80 shrink-0 bg-white border border-zinc-200">
         <div className="flex gap-3">
             <img className="size-10 rounded-full object-cover" src={card.image} alt={card.name} />
             <div className="flex flex-col">
                 <div className="flex items-center gap-1">
-                    <p className="font-medium text-zinc-100 text-sm">{card.name}</p>
+                    <p className="font-medium text-zinc-900 text-sm">{card.name}</p>
                     <VerifyIcon />
                 </div>
                 <span className="text-xs text-zinc-500">{card.handle}</span>
             </div>
         </div>
-        <p className="text-sm pt-3 text-zinc-400 leading-relaxed">
+        <p className="text-sm pt-3 text-zinc-600 leading-relaxed">
             {card.text}
         </p>
     </div>
@@ -114,7 +114,7 @@ function MarqueeRow({
 
     return (
         <div className="relative w-full overflow-hidden isolation-isolate">
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-32 z-10 bg-gradient-to-r from-black to-transparent" />
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-32 z-10 bg-gradient-to-r from-white to-transparent" />
             <div
                 className={cn(
                     "flex w-max hover:[animation-play-state:paused]",
@@ -129,7 +129,7 @@ function MarqueeRow({
                     <Card key={i} card={c} />
                 ))}
             </div>
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-32 z-10 bg-gradient-to-l from-black to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-32 z-10 bg-gradient-to-l from-white to-transparent" />
         </div>
     );
 }

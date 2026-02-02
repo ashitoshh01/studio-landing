@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #000000;
-  --color-foreground: #ffffff;
+  --color-background: #ffffff;
+  --color-foreground: #09090b;
 
   --color-zinc-50: #fafafa;
   --color-zinc-100: #f4f4f5;
@@ -16,25 +16,25 @@
   --color-zinc-900: #18181b;
   --color-zinc-950: #09090b;
 
-  --color-primary: #ffffff;
-  --color-primary-foreground: #000000;
+  --color-primary: #18181b;
+  --color-primary-foreground: #ffffff;
 
-  --color-muted: #27272a;
-  --color-muted-foreground: #a1a1aa;
+  --color-muted: #f4f4f5;
+  --color-muted-foreground: #71717a;
 
-  --color-card: #18181b;
-  --color-card-foreground: #ffffff;
+  --color-card: #ffffff;
+  --color-card-foreground: #09090b;
 
-  --color-border: #3f3f46;
-  --color-input: #3f3f46;
+  --color-border: #e4e4e7;
+  --color-input: #e4e4e7;
 
-  --color-ring: #ffffff;
+  --color-ring: #18181b;
 
-  --color-accent: #27272a;
-  --color-accent-foreground: #ffffff;
+  --color-accent: #f4f4f5;
+  --color-accent-foreground: #18181b;
 
-  --color-secondary: #27272a;
-  --color-secondary-foreground: #ffffff;
+  --color-secondary: #f4f4f5;
+  --color-secondary-foreground: #18181b;
 
   --color-destructive: #ef4444;
   --color-destructive-foreground: #ffffff;
@@ -50,6 +50,7 @@
 @layer base {
   html {
     @apply overflow-x-hidden;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -72,7 +73,7 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-linear-to-b from-white to-zinc-500;
+    @apply bg-clip-text text-transparent bg-linear-to-b from-zinc-900 to-zinc-500;
   }
 }
 

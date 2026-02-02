@@ -27,7 +27,7 @@ function RevealImageListItem({ text, images }: ShowImageListItemProps) {
             onClick={handleScrollToContact}
             className="group relative h-fit w-fit overflow-visible py-8 cursor-pointer"
         >
-            <h1 className="text-4xl md:text-7xl font-black text-foreground transition-all duration-500 group-hover:opacity-40">
+            <h1 className="text-4xl md:text-7xl font-black text-zinc-900 transition-all duration-500 group-hover:opacity-40">
                 {text}
             </h1>
             <div className={container}>

@@ -54,7 +54,7 @@ export function ProjectsSection() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {items.map((item) => (
                         <Link key={item.id} href={item.href} className="block group">
-                            <Card className="h-full bg-zinc-900 border-zinc-800 overflow-hidden hover:border-zinc-700 transition-colors duration-300">
+                            <Card className="h-full bg-white border-zinc-200 overflow-hidden hover:border-zinc-300 transition-colors duration-300 shadow-sm hover:shadow-md">
                                 <div className="relative aspect-video w-full overflow-hidden">
                                     <Image
                                         src={item.imageSrc}
@@ -65,10 +65,10 @@ export function ProjectsSection() {
                                 </div>
                                 <CardHeader>
                                     <div className="flex items-center justify-between">
-                                        <CardTitle className="text-white text-xl">{item.title}</CardTitle>
-                                        <ArrowUpRight className="text-zinc-500 w-5 h-5 group-hover:text-white transition-colors" />
+                                        <CardTitle className="text-zinc-900 text-xl">{item.title}</CardTitle>
+                                        <ArrowUpRight className="text-zinc-400 w-5 h-5 group-hover:text-zinc-900 transition-colors" />
                                     </div>
-                                    <CardDescription className="text-zinc-400 mt-2">
+                                    <CardDescription className="text-zinc-500 mt-2">
                                         {item.description}
                                     </CardDescription>
                                 </CardHeader>

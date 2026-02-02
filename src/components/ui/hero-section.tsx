@@ -53,43 +53,54 @@ export function Web3HeroAnimated() {
         `}
             </style>
 
-            <section className="relative isolate h-screen overflow-hidden bg-black text-white">
+            <section className="relative isolate h-screen overflow-hidden bg-zinc-50 text-zinc-900">
                 {/* ================== BACKGROUND ================== */}
-                {/* Luminous elliptical gradients to emulate the red→violet band and right cool rim */}
+                {/* Luminous elliptical gradients */}
+                {/* ================== BACKGROUND ================== */}
+                {/* Luminous elliptical gradients - Aurora Style */}
                 <div
                     aria-hidden
-                    className="absolute inset-0 -z-30"
+                    className="absolute inset-0 -z-30 overflow-hidden"
                     style={{
-                        backgroundImage: [
-                            // Main central dome/band (slightly below center)
-                            "radial-gradient(80% 55% at 50% 52%, rgba(252,166,154,0.45) 0%, rgba(214,76,82,0.46) 27%, rgba(61,36,47,0.38) 47%, rgba(39,38,67,0.45) 60%, rgba(8,8,12,0.92) 78%, rgba(0,0,0,1) 88%)",
-                            // Warm sweep from top-left
-                            "radial-gradient(85% 60% at 14% 0%, rgba(255,193,171,0.65) 0%, rgba(233,109,99,0.58) 30%, rgba(48,24,28,0.0) 64%)",
-                            // Cool rim on top-right
-                            "radial-gradient(70% 50% at 86% 22%, rgba(88,112,255,0.40) 0%, rgba(16,18,28,0.0) 55%)",
-                            // Soft top vignette
-                            "linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0) 40%)",
-                        ].join(","),
-                        backgroundColor: "#000",
+                        background: `
+                            radial-gradient(circle at 15% 50%, rgba(100, 100, 255, 0.15), transparent 45%),
+                            radial-gradient(circle at 85% 30%, rgba(255, 100, 150, 0.15), transparent 45%),
+                            radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1), transparent 100%),
+                            linear-gradient(to bottom, transparent, #ffffff)
+                        `
                     }}
-                />
+                >
+                    <div className="absolute top-[-20%] left-[-10%] h-[80vh] w-[80vw] bg-purple-200/40 blur-[120px] rounded-full mix-blend-multiply opacity-70 animate-pulse" style={{ animationDuration: '8s' }} />
+                    <div className="absolute bottom-[-10%] right-[-10%] h-[80vh] w-[80vw] bg-blue-200/40 blur-[120px] rounded-full mix-blend-multiply opacity-70 animate-pulse" style={{ animationDuration: '10s' }} />
+                    <div className="absolute top-[20%] left-[30%] h-[60vh] w-[60vw] bg-pink-100/60 blur-[100px] rounded-full mix-blend-multiply opacity-60" />
+                </div>
 
                 {/* Vignette corners for extra contrast */}
-                <div aria-hidden className="absolute inset-0 -z-20 bg-[radial-gradient(140%_120%_at_50%_0%,transparent_60%,rgba(0,0,0,0.85))]" />
+                <div aria-hidden className="absolute inset-0 -z-20 bg-[radial-gradient(140%_120%_at_50%_0%,transparent_50%,rgba(255,255,255,0.95))]" />
 
                 {/* Grid overlay: vertical columns + subtle curved horizontal arcs */}
                 <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 -z-10 mix-blend-screen opacity-30"
+                    className="pointer-events-none absolute inset-0 -z-10 opacity-[0.03]"
+                    style={{
+                        backgroundImage: `
+                            linear-gradient(to right, #000 1px, transparent 1px),
+                            linear-gradient(to bottom, #000 1px, transparent 1px)
+                        `,
+                        backgroundSize: '40px 40px',
+                        maskImage: 'radial-gradient(circle at 50% 50%, black 40%, transparent 100%)'
+                    }}
+                />
+
+                {/* Curved horizontal arcs via repeating elliptical radial gradient for depth */}
+                <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 -z-10 mix-blend-multiply opacity-[0.05]"
                     style={{
                         backgroundImage: [
-                            // Vertical grid lines (major & minor)
-                            "repeating-linear-gradient(90deg, rgba(255,255,255,0.09) 0 1px, transparent 1px 96px)",
-                            "repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 24px)",
-                            // Curved horizontal arcs via repeating elliptical radial gradient
-                            "repeating-radial-gradient(80% 55% at 50% 52%, rgba(255,255,255,0.08) 0 1px, transparent 1px 120px)"
+                            "repeating-radial-gradient(80% 55% at 50% 52%, rgba(0,0,0,0.8) 0 1px, transparent 1px 120px)"
                         ].join(","),
-                        backgroundBlendMode: "screen",
+                        backgroundBlendMode: "multiply",
                     }}
                 />
 
@@ -97,15 +108,15 @@ export function Web3HeroAnimated() {
                 <div className="relative z-10 mx-auto grid w-full max-w-5xl place-items-center px-6 py-16 md:py-24 lg:py-28">
                     {/* We set opacity to 0 and apply the animation class to trigger the fade-in effect */}
                     <div className={`mx-auto text-center ${isMounted ? 'animate-fadeInUp' : 'opacity-0'}`}>
-                        <span className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-[11px] uppercase tracking-wider text-white/70 ring-1 ring-white/10 backdrop-blur">
-                            <span className="h-1.5 w-1.5 rounded-full bg-white/70" /> Digital Excellence
+                        <span className="inline-flex items-center gap-2 rounded-full bg-zinc-100 px-3 py-1 text-[11px] uppercase tracking-wider text-zinc-900 border border-zinc-200 backdrop-blur">
+                            <span className="h-1.5 w-1.5 rounded-full bg-zinc-900" /> Digital Excellence
                         </span>
                         {/* Stagger animations with inline animation-delay */}
-                        <h1 style={{ animationDelay: '200ms' }} className={`mt-6 text-4xl font-bold tracking-tight md:text-6xl ${isMounted ? 'animate-fadeInUp' : 'opacity-0'}`}>We Build Digital Experiences That Scale</h1>
-                        <p style={{ animationDelay: '300ms' }} className={`mx-auto mt-5 max-w-2xl text-balance text-white/80 md:text-lg ${isMounted ? 'animate-fadeInUp' : 'opacity-0'}`}>Transform your vision into reality with cutting-edge web solutions. From stunning designs to powerful applications, we craft digital products that drive results.</p>
+                        <h1 style={{ animationDelay: '200ms' }} className={`mt-6 text-4xl font-bold tracking-tight md:text-6xl text-black ${isMounted ? 'animate-fadeInUp' : 'opacity-0'}`}>We Build Digital Experiences That Scale</h1>
+                        <p style={{ animationDelay: '300ms' }} className={`mx-auto mt-5 max-w-2xl text-balance text-zinc-800 font-medium md:text-lg ${isMounted ? 'animate-fadeInUp' : 'opacity-0'}`}>Transform your vision into reality with cutting-edge web solutions. From stunning designs to powerful applications, we craft digital products that drive results.</p>
                         <div style={{ animationDelay: '400ms' }} className={`mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row ${isMounted ? 'animate-fadeInUp' : 'opacity-0'}`}>
-                            <a href="#contact" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black shadow transition hover:bg-white/90">Start Your Project</a>
-                            <a href="#projects" className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/90 backdrop-blur hover:border-white/40">View Our Work</a>
+                            <a href="#contact" className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white shadow transition hover:bg-zinc-800">Start Your Project</a>
+                            <a href="#projects" className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-900 backdrop-blur hover:bg-zinc-100/50">View Our Work</a>
                         </div>
                     </div>
                 </div>
@@ -114,7 +125,7 @@ export function Web3HeroAnimated() {
                 <div className="relative z-10 mx-auto mt-10 w-full max-w-6xl px-6 pb-24">
                     <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 opacity-70">
                         {["React", "Next.js", "TypeScript", "Node.js", "Tailwind", "Vercel", "AWS", "Stripe"].map((brand) => (
-                            <div key={brand} className="text-xs uppercase tracking-wider text-white/70">{brand}</div>
+                            <div key={brand} className="text-xs uppercase tracking-wider text-zinc-900 font-bold opacity-60">{brand}</div>
                         ))}
                     </div>
                 </div>
@@ -122,20 +133,23 @@ export function Web3HeroAnimated() {
                 {/* ================== FOREGROUND ================== */}
                 {/* Center-bottom rectangular glow with pulse animation */}
                 <div
-                    className="pointer-events-none absolute bottom-[128px] left-1/2 z-0 h-36 w-28 -translate-x-1/2 rounded-md bg-gradient-to-b from-white/75 via-rose-100/60 to-transparent"
+                    className="pointer-events-none absolute bottom-[128px] left-1/2 z-0 h-36 w-28 -translate-x-1/2 rounded-md bg-gradient-to-b from-rose-200/50 via-rose-100/30 to-transparent"
                     style={{ animation: 'subtlePulse 6s ease-in-out infinite' }}
                 />
 
                 {/* Stepped pillars silhouette */}
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[54vh]">
-                    {/* dark fade */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent" />
+                    {/* Horizon Glow - Critical for silhouetting white pillars against white background */}
+                    <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-purple-100/50 via-blue-50/30 to-transparent mix-blend-multiply" />
+
+                    {/* light fade */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-50 via-zinc-50/90 to-transparent" />
                     {/* bars */}
                     <div className="absolute inset-x-0 bottom-0 flex h-full items-end gap-px px-[2px]">
                         {pillars.map((h, i) => (
                             <div
                                 key={i}
-                                className="flex-1 bg-black transition-height duration-1000 ease-in-out"
+                                className="flex-1 bg-zinc-950 transition-height duration-1000 ease-in-out"
                                 style={{
                                     // Animate height from 0% to its target value when isMounted is true.
                                     height: isMounted ? `${h}%` : '0%',

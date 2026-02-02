@@ -3,29 +3,29 @@
 import React from "react";
 
 interface LoaderProps {
-    screenHFull?: boolean;
+  screenHFull?: boolean;
 }
 
 export default function Loader({ screenHFull = false }: LoaderProps) {
-    return (
-        <div className={`relative flex flex-col items-center justify-center ${screenHFull ? "min-h-screen bg-black" : ""}`}>
-            <div className="relative w-12 h-12">
-                {/* Shadow */}
-                {/* <div className="absolute top-16 left-0 w-12 h-[2px] bg-[#f0808050] rounded-full animate-shadow-jump" /> */}
+  return (
+    <div className={`relative flex flex-col items-center justify-center ${screenHFull ? "min-h-screen bg-zinc-50" : ""}`}>
+      <div className="relative w-12 h-12">
+        {/* Shadow */}
+        {/* <div className="absolute top-16 left-0 w-12 h-[2px] bg-[#f0808050] rounded-full animate-shadow-jump" /> */}
 
-                {/* Box */}
-                <div className="absolute w-full h-full bg-[#f08080] rounded-md animate-box-jump" />
-            </div>
+        {/* Box */}
+        <div className="absolute w-full h-full bg-black rounded-md animate-box-jump" />
+      </div>
 
-            <div className="mt-8 text-white font-mono text-lg tracking-widest flex items-end">
-                Loading
-                <span className="animate-[bounce_1.4s_infinite] ml-1">.</span>
-                <span className="animate-[bounce_1.4s_infinite_0.2s] ml-0.5">.</span>
-                <span className="animate-[bounce_1.4s_infinite_0.4s] ml-0.5">.</span>
-            </div>
+      <div className="mt-8 text-zinc-900 font-mono text-lg tracking-widest flex items-end">
+        Loading
+        <span className="animate-[bounce_1.4s_infinite] ml-1">.</span>
+        <span className="animate-[bounce_1.4s_infinite_0.2s] ml-0.5">.</span>
+        <span className="animate-[bounce_1.4s_infinite_0.4s] ml-0.5">.</span>
+      </div>
 
-            {/* Tailwind keyframe styles */}
-            <style>{`
+      {/* Tailwind keyframe styles */}
+      <style>{`
         @keyframes box-jump {
           15% {
             border-bottom-right-radius: 3px;
@@ -62,6 +62,6 @@ export default function Loader({ screenHFull = false }: LoaderProps) {
           animation: shadow-jump 0.5s linear infinite;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }
