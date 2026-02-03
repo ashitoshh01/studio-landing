@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Home, Briefcase, Mail, Users } from "lucide-react";
-import { ExpandableTabs } from "@/components/ui/expandable-tabs";
+import { Home, Briefcase, Mail, Users, User } from "lucide-react";
 import { MobileNav } from "@/components/mobile-nav";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
@@ -16,36 +15,29 @@ export function Navbar() {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
 
-            // Determine active section based on scroll position
-            const scrollPosition = window.scrollY + 100; // Offset for better detection
+            // Trigger point at 25% of viewport height (closer to top) avoids early switching
+            const triggerPoint = window.scrollY + window.innerHeight * 0.25;
 
             const sections = [
-                { id: 'top', tabIndex: 0 },
-                { id: 'services', tabIndex: 1 },
-                { id: 'projects', tabIndex: 3 },
-                { id: 'contact', tabIndex: 4 },
+                { id: 'about', tabIndex: 1 },
+                { id: 'services', tabIndex: 2 },
+                { id: 'projects', tabIndex: 4 },
+                { id: 'testimonials', tabIndex: 4 }, // Keep 'Projects' active during testimonials
+                { id: 'contact', tabIndex: 5 },
             ];
 
-            // Default to Home if at top
-            if (scrollPosition < 300) {
-                setActiveTab(0);
-                return;
-            }
+            let newActiveTab = 0; // Default to Home 'top'
 
             for (const section of sections) {
-                if (section.id === 'top') continue; // Handled above
-
                 const element = document.getElementById(section.id);
                 if (element) {
-                    const offsetTop = element.offsetTop;
-                    const offsetBottom = offsetTop + element.offsetHeight;
-
-                    if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-                        setActiveTab(section.tabIndex);
-                        break;
+                    if (triggerPoint >= element.offsetTop) {
+                        newActiveTab = section.tabIndex;
                     }
                 }
             }
+
+            setActiveTab(newActiveTab);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -54,6 +46,7 @@ export function Navbar() {
 
     const tabs = [
         { title: "Home", icon: Home },
+        { title: "About Us", icon: User },
         { title: "Services", icon: Briefcase },
         { type: "separator" as const },
         { title: "Projects", icon: Users },
@@ -65,13 +58,14 @@ export function Navbar() {
 
         // Adjust mapping based on separator index
         // 0: Home -> Top
-        // 1: Services -> #services
-        // 2: Separator
-        // 3: Projects -> #projects
-        // 4: Contact -> #contact
+        // 1: About Us -> #about
+        // 2: Services -> #services
+        // 3: Separator
+        // 4: Projects -> #projects
+        // 5: Contact -> #contact
 
-        const targetIndex = index < 2 ? index : index - 1;
-        const sections = ["top", "services", "projects", "contact"];
+        const targetIndex = index < 3 ? index : index - 1;
+        const sections = ["top", "about", "services", "projects", "contact"];
         const sectionId = sections[targetIndex];
 
         if (sectionId === "top") {
@@ -99,24 +93,39 @@ export function Navbar() {
                         alt="Logo"
                         width={220}
                         height={140}
-                        className="h-28 w-auto object-contain"
+                        className="h-40 w-auto object-contain"
                         priority
                     />
                 </Link>
 
-                {/* Centered Navigation (>900px) / Right Aligned (480px-900px) */}
-                <div className="hidden min-[480px]:block w-fit ml-auto min-[900px]:ml-0 min-[900px]:absolute min-[900px]:left-1/2 min-[900px]:top-1/2 min-[900px]:-translate-x-1/2 min-[900px]:-translate-y-1/2">
-                    <ExpandableTabs
-                        tabs={tabs}
-                        activeTabIndex={activeTab}
-                        activeColor="text-zinc-900"
-                        className="border-none bg-transparent shadow-none"
-                        onChange={handleTabChange}
-                    />
+                {/* Desktop Navigation - Right Aligned */}
+                <div className="hidden min-[900px]:flex items-center gap-8 ml-auto">
+                    {tabs.map((tab, index) => {
+                        if (tab.type === "separator") {
+                            return <div key={index} className="h-4 w-px bg-zinc-300" />;
+                        }
+
+                        const Icon = tab.icon;
+                        return (
+                            <button
+                                key={index}
+                                onClick={() => handleTabChange(index)}
+                                className={cn(
+                                    "flex items-center gap-2 text-sm font-medium transition-colors duration-200",
+                                    activeTab === (index < 3 ? index : index - 1)
+                                        ? "text-zinc-900 font-bold"
+                                        : "text-zinc-500 hover:text-zinc-900"
+                                )}
+                            >
+                                {Icon && <Icon className="h-4 w-4" />}
+                                <span>{tab.title}</span>
+                            </button>
+                        );
+                    })}
                 </div>
 
-                {/* Mobile Navigation - Right Aligned (visible only below 480px) */}
-                <div className="min-[480px]:hidden ml-auto z-50">
+                {/* Mobile Navigation - Right Aligned (visible below 900px) */}
+                <div className="min-[900px]:hidden ml-auto z-50">
                     <MobileNav
                         tabs={tabs}
                         onTabSelect={handleTabChange}

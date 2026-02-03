@@ -7,21 +7,23 @@ import { ContactSection } from '@/components/ui/contact';
 // import { Web3HeroAnimated } from '@/components/ui/hero-section';
 import { AnimatedMarqueeHero } from '@/components/ui/hero-3';
 import { RevealImageList } from '@/components/ui/reveal-images';
+import { AboutStory } from '@/components/ui/about-story';
 
 import { ProjectsSection } from '@/components/projects-section';
 import Loader from '@/components/ui/loader';
-import { MarqueeTestimonials } from '@/components/ui/marquee-testimonials';
 
 // A list of sample image URLs for the demo
 const DEMO_IMAGES = [
-  "https://images.unsplash.com/photo-1756312148347-611b60723c7a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzN3x8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1757865579201-693dd2080c73?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2MXx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1756786605218-28f7dd95a493?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMzh8fHxlbnwwfHx8fHw%3D",
-  "https://images.unsplash.com/photo-1757519740947-eef07a74c4ab?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNDh8fHxlbnwwfHx8fHw%3D",
-  "https://images.unsplash.com/photo-1757263005786-43d955f07fb1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNzB8fHxlbnwwfHx8fHw%3D",
-  "https://images.unsplash.com/photo-1757207445614-d1e12b8f753e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxODZ8fHxlbnwwfHx8fHw%3D",
-  "https://images.unsplash.com/photo-1757269746970-dc477517268f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyMjN8fHxlbnwwfHx8fHw%3D",
-  "https://images.unsplash.com/photo-1755119902709-a53513bcbedc?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyNDF8fHxlbnwwfHx8fHw%3D",
+  "/hero/hero-1.jpg",
+  "/hero/hero-2.jpg",
+  "/hero/hero-3.jpg",
+  "/hero/hero-4.jpg",
+  "/hero/hero-5.jpg",
+  "/hero/hero-6.jpg",
+  "/hero/hero-7.jpg",
+  "/hero/hero-8.jpg",
+  "/hero/hero-9.jpg",
+  "/hero/hero-10.jpg",
 ];
 
 export default function Home() {
@@ -47,13 +49,18 @@ export default function Home() {
       <main className="flex-1 flex flex-col">
         {/* --- HERO SECTION (Full Screen) --- */}
         <AnimatedMarqueeHero
-          tagline="Digital Excellence"
-          title="We Build Digital Experiences That Scale"
+          tagline="Design. Build. Scale."
+          title="Creating Impactful Experiences"
           description="Transform your vision into reality with cutting-edge web solutions. From stunning designs to powerful applications, we craft digital products that drive results."
-          ctaText="See Projects"
-          ctaHref="#projects"
+          primaryCtaText="View Our Work"
+          primaryCtaHref="#projects"
+          secondaryCtaText="Start a Project"
+          secondaryCtaHref="#contact"
           images={DEMO_IMAGES}
         />
+
+        {/* --- ABOUT SECTION --- */}
+        <AboutStory />
 
         {/* --- SERVICES SECTION --- */}
         <section id="services" className="py-24 bg-background border-t border-zinc-200">
@@ -86,17 +93,15 @@ export default function Home() {
         </section>
 
         {/* --- TESTIMONIALS SECTION --- */}
-        <section className="py-24 bg-background border-t border-zinc-200">
+        <section id="testimonials" className="py-24 bg-background border-t border-zinc-200">
           <div className="container-wrapper">
-            <div className="mb-16 text-center">
-              <h2 className="h2 text-zinc-900">Client Success Stories</h2>
-              <p className="text-zinc-500 mt-4 text-lg">
-                Join hundreds of satisfied clients worldwide
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-0">
-              <MarqueeTestimonials />
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="h2 text-zinc-900">Client Feedback</h2>
+              <div className="mt-8 p-8 bg-zinc-50 rounded-2xl border border-zinc-200">
+                <p className="text-zinc-600 text-lg leading-relaxed">
+                  We’re currently working with early clients and partners. Testimonials will be added as projects go live.
+                </p>
+              </div>
             </div>
           </div>
         </section>

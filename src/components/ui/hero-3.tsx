@@ -9,21 +9,26 @@ interface AnimatedMarqueeHeroProps {
     tagline: string;
     title: React.ReactNode;
     description: string;
-    ctaText: string;
-    ctaHref?: string;
+    primaryCtaText?: string;
+    primaryCtaHref?: string;
+    secondaryCtaText?: string;
+    secondaryCtaHref?: string;
     images: string[];
     className?: string;
 }
 
 // Reusable Button component styled like in the image
-const ActionButton = ({ children, href }: { children: React.ReactNode; href?: string }) => {
+const ActionButton = ({ children, href, className }: { children: React.ReactNode; href?: string; className?: string }) => {
     const Component = href ? motion.a : motion.button;
     return (
         <Component
             href={href}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-8 px-8 py-3 rounded-full bg-red-500 text-white font-semibold shadow-lg transition-colors hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 inline-block"
+            className={cn(
+                "px-8 py-3 rounded-full font-semibold shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-opacity-75 inline-block",
+                className
+            )}
         >
             {children}
         </Component>
@@ -35,8 +40,10 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
     tagline,
     title,
     description,
-    ctaText,
-    ctaHref,
+    primaryCtaText,
+    primaryCtaHref,
+    secondaryCtaText,
+    secondaryCtaHref,
     images,
     className,
 }) => {
@@ -56,13 +63,13 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                 className
             )}
         >
-            <div className="z-10 flex flex-col items-center">
+            <div className="z-10 flex flex-col items-center -translate-y-8">
                 {/* Tagline */}
                 <motion.div
                     initial="hidden"
                     animate="show"
                     variants={FADE_IN_ANIMATION_VARIANTS}
-                    className="mb-4 inline-block rounded-full border border-border bg-card/50 px-4 py-1.5 text-sm font-medium text-muted-foreground backdrop-blur-sm"
+                    className="mb-4 inline-block rounded-full border border-border bg-card/50 px-4 py-1.5 text-sm font-medium text-zinc-600 backdrop-blur-sm"
                 >
                     {tagline}
                 </motion.div>
@@ -82,15 +89,26 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                     className="text-5xl md:text-7xl font-bold tracking-tighter text-foreground"
                 >
                     {typeof title === 'string' ? (
-                        title.split(" ").map((word, i) => (
-                            <motion.span
-                                key={i}
-                                variants={FADE_IN_ANIMATION_VARIANTS}
-                                className="inline-block"
-                            >
-                                {word}&nbsp;
-                            </motion.span>
-                        ))
+                        title.split(" ").map((word, i) => {
+                            const isHighlight = word.includes("Impactful");
+                            return (
+                                <motion.span
+                                    key={i}
+                                    variants={FADE_IN_ANIMATION_VARIANTS}
+                                    className="relative inline-block mx-2"
+                                >
+                                    {isHighlight && (
+                                        <span className="absolute inset-0 -z-10 block w-full h-full transform -skew-x-12 -rotate-2 scale-125">
+                                            <svg viewBox="0 0 200 90" className="w-[120%] h-[170%] absolute -top-6 -left-6 fill-[#74B52A]" preserveAspectRatio="none">
+                                                <path d="M15.5,55.8c0,0,32.3-17.7,60.7-22.3c23.6-3.8,111.9-9.1,123.7,1.6c6.4,5.8-9.4,13.8-37.5,20.4c-35.3,8.3-95.3,9.8-132.4,9.4C10.4,64.7,0.7,60.1,15.5,55.8z" />
+                                                <path d="M190.5,35.8c-2.3-4.2-22.3-1.6-42.3,1.4c-33.6,5-101.9,13.1-137.4,14.4c-12.6,0.5-22.6,3.5,2.6,10.4c29.3,8,95.3,8.8,142.4,2.4C180.4,59.7,192.7,40.1,190.5,35.8z" opacity="0.6" />
+                                            </svg>
+                                        </span>
+                                    )}
+                                    <span className={isHighlight ? "relative z-10 text-white" : ""}>{word}</span>
+                                </motion.span>
+                            );
+                        })
                     ) : (
                         title
                     )}
@@ -102,19 +120,36 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                     animate="show"
                     variants={FADE_IN_ANIMATION_VARIANTS}
                     transition={{ delay: 0.5 }}
-                    className="mt-6 max-w-xl text-lg text-muted-foreground"
+                    className="mt-6 max-w-xl text-lg text-zinc-600 font-medium"
                 >
                     {description}
                 </motion.p>
 
-                {/* Call to Action Button */}
+                {/* Call to Action Buttons */}
                 <motion.div
                     initial="hidden"
                     animate="show"
                     variants={FADE_IN_ANIMATION_VARIANTS}
                     transition={{ delay: 0.6 }}
+                    className="mt-8 flex flex-wrap gap-4 justify-center"
                 >
-                    <ActionButton href={ctaHref}>{ctaText}</ActionButton>
+                    {primaryCtaText && (
+                        <ActionButton
+                            href={primaryCtaHref}
+                            className="bg-[#000000] text-white hover:bg-zinc-800 focus:ring-[#353535]"
+                        >
+                            {primaryCtaText}
+                        </ActionButton>
+                    )}
+
+                    {secondaryCtaText && (
+                        <ActionButton
+                            href={secondaryCtaHref}
+                            className="bg-[#57AB1B] text-white hover:bg-[#74B52A] focus:ring-[#57AB1B]"
+                        >
+                            {secondaryCtaText}
+                        </ActionButton>
+                    )}
                 </motion.div>
             </div>
 

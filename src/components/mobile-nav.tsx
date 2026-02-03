@@ -58,7 +58,7 @@ export function MobileNav({ tabs, onTabSelect }: MobileNavProps) {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[1000]"
+                            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9998]"
                             onClick={() => setOpen(false)}
                         />
 
@@ -68,7 +68,7 @@ export function MobileNav({ tabs, onTabSelect }: MobileNavProps) {
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            className="fixed right-0 top-0 bottom-0 w-[300px] bg-white border-l border-zinc-200 p-6 z-[1000] flex flex-col gap-8 shadow-2xl"
+                            className="fixed right-0 top-0 bottom-0 w-[300px] bg-white border-l border-zinc-200 p-6 z-[9999] flex flex-col gap-8 shadow-2xl"
                         >
                             <div className="flex justify-end">
                                 <Button
