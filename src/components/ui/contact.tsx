@@ -135,7 +135,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
-                                        <Label htmlFor="name" className="text-zinc-700">Name</Label>
+                                        <Label htmlFor="name" className="text-zinc-700">Name *</Label>
                                         <Input
                                             id="name"
                                             name="name"
@@ -147,7 +147,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <Label htmlFor="email" className="text-zinc-700">Email</Label>
+                                        <Label htmlFor="email" className="text-zinc-700">Email *</Label>
                                         <Input
                                             id="email"
                                             name="email"
@@ -162,7 +162,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                 </div>
 
                                 <div className="space-y-2">
-                                    <Label htmlFor="phone" className="text-zinc-700">Phone (Optional)</Label>
+                                    <Label htmlFor="phone" className="text-zinc-700">Phone</Label>
                                     <Input
                                         id="phone"
                                         name="phone"
@@ -175,7 +175,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                 </div>
 
                                 <div className="space-y-2">
-                                    <Label htmlFor="message" className="text-zinc-700">Project Details</Label>
+                                    <Label htmlFor="message" className="text-zinc-700">Project Details *</Label>
                                     <Textarea
                                         id="message"
                                         name="message"
