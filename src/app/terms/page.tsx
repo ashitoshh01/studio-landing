@@ -1,4 +1,24 @@
+import { Metadata } from "next";
 import { HeaderWithBack } from "@/components/ui/header-with-back";
+
+export const metadata: Metadata = {
+    title: "Terms of Service",
+    description: "Read the terms of service for Apix Build. Understand our service agreements, payment policies, and client responsibilities when working with our digital agency.",
+    keywords: ["Terms of Service", "Apix Build Terms", "Service Agreement", "Digital Agency Terms"],
+    openGraph: {
+        title: "Terms of Service - Apix Build",
+        description: "Service agreements and policies for working with Apix Build.",
+        url: "https://apixbuild.com/terms",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://apixbuild.com/terms",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+};
 
 export default function TermsPage() {
     return (

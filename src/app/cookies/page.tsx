@@ -1,4 +1,24 @@
+import { Metadata } from "next";
 import { HeaderWithBack } from "@/components/ui/header-with-back";
+
+export const metadata: Metadata = {
+    title: "Cookie Policy",
+    description: "Learn how Apix Build uses cookies on our website. Understand the types of cookies we use and how to manage your cookie preferences.",
+    keywords: ["Cookie Policy", "Apix Build Cookies", "Website Cookies", "Privacy Settings"],
+    openGraph: {
+        title: "Cookie Policy - Apix Build",
+        description: "How we use cookies to improve your browsing experience.",
+        url: "https://apixbuild.com/cookies",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://apixbuild.com/cookies",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+};
 
 export default function CookiesPage() {
     return (

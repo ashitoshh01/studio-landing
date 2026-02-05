@@ -1,4 +1,24 @@
+import { Metadata } from "next";
 import { HeaderWithBack } from "@/components/ui/header-with-back";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy",
+    description: "Read Apix Build's privacy policy. Learn how we collect, use, and protect your personal information when you use our web development and design services.",
+    keywords: ["Privacy Policy", "Data Protection", "Apix Build Privacy", "User Data Policy"],
+    openGraph: {
+        title: "Privacy Policy - Apix Build",
+        description: "How we handle and protect your personal information.",
+        url: "https://apixbuild.com/privacy",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://apixbuild.com/privacy",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+};
 
 export default function PrivacyPage() {
     return (

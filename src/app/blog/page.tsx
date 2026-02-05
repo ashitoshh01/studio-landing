@@ -1,4 +1,20 @@
+import { Metadata } from "next";
 import { HeaderWithBack } from "@/components/ui/header-with-back";
+
+export const metadata: Metadata = {
+    title: "Blog - Web Development Tips & Digital Insights",
+    description: "Explore the Apix Build blog for expert insights on web development, UI/UX design, SEO optimization, and digital marketing strategies for startups and businesses.",
+    keywords: ["Web Development Blog", "UI/UX Tips", "SEO Guide", "Digital Marketing Insights", "Startup Website Tips", "Web Design Best Practices"],
+    openGraph: {
+        title: "Apix Build Blog - Digital Insights & Tutorials",
+        description: "Practical guides and tips on web development, design, and growing your digital presence.",
+        url: "https://apixbuild.com/blog",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://apixbuild.com/blog",
+    },
+};
 
 export default function BlogPage() {
     return (

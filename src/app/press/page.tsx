@@ -1,4 +1,20 @@
+import { Metadata } from "next";
 import { HeaderWithBack } from "@/components/ui/header-with-back";
+
+export const metadata: Metadata = {
+    title: "Press & Media - Official Information",
+    description: "Official press and media information about Apix Build. Get brand assets, company information, and contact details for media inquiries and partnerships.",
+    keywords: ["Apix Build Press", "Media Inquiries", "Brand Assets", "Digital Agency Press Kit", "Partnership Inquiries"],
+    openGraph: {
+        title: "Apix Build Press & Media",
+        description: "Official information for journalists, media professionals, and partners.",
+        url: "https://apixbuild.com/press",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://apixbuild.com/press",
+    },
+};
 
 export default function PressPage() {
     return (
