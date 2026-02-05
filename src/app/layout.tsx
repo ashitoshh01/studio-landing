@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   description: 'Premium digital agency specialized in UI/UX design, web development, and strategy.',
   keywords: ['digital agency', 'web design', 'next.js', 'react', 'seo', 'ui/ux'],
   icons: {
-    icon: '/logo-new.png',
-    apple: '/logo-new.png',
+    icon: '/logo-icon.png',
+    apple: '/logo-icon.png',
   },
 };
 
