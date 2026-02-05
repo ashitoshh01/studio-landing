@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -70,7 +72,14 @@ export function MobileNav({ tabs, onTabSelect }: MobileNavProps) {
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
                             className="fixed right-0 top-0 bottom-0 w-[300px] bg-white border-l border-zinc-200 p-6 z-[9999] flex flex-col gap-8 shadow-2xl"
                         >
-                            <div className="flex justify-end">
+                            <div className="flex justify-between items-center">
+                                <Image
+                                    src="/logo-new.png"
+                                    alt="Logo"
+                                    width={180}
+                                    height={60}
+                                    className="h-16 w-auto object-contain"
+                                />
                                 <Button
                                     variant="ghost"
                                     size="icon"
@@ -105,10 +114,10 @@ export function MobileNav({ tabs, onTabSelect }: MobileNavProps) {
                             <div className="mt-auto text-center text-xs text-zinc-400">
                                 &copy; 2026 ApixBuild
                             </div>
-                        </motion.div>
+                        </motion.div >
                     </>
                 )}
-            </AnimatePresence>
+            </AnimatePresence >
         </>
     );
 }

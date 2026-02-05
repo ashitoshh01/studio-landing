@@ -100,9 +100,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </div>
 
             {/* Main Content Overlay */}
-            <div className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen p-4 md:p-8 lg:p-12">
+            <div className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen p-1 md:p-8 lg:p-12">
                 {/* Main Section - Vertical Layout */}
-                <div className="flex flex-col items-center gap-8 w-full max-w-4xl p-4 md:p-8 rounded-xl mt-16">
+                <div className="flex flex-col items-center gap-8 w-full max-w-4xl p-0 md:p-8 rounded-xl mt-16">
                     {/* Title */}
                     <div className="text-center w-full">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-zinc-900 leading-tight drop-shadow-sm">
@@ -111,14 +111,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     </div>
 
                     {/* Contact Form - Wider */}
-                    <div className="relative bg-white/80 p-6 md:p-10 rounded-2xl shadow-xl border border-zinc-200 backdrop-blur-xl w-full group">
+                    <div id="contact-form" className="relative bg-white/80 p-4 md:p-10 rounded-2xl shadow-xl border border-zinc-200 backdrop-blur-xl w-[90vw] md:w-full group">
                         {/* Glow Effect - Subtle Zinc */}
                         <div className="absolute -top-20 -right-20 w-64 h-64 bg-zinc-200/50 rounded-full blur-3xl pointer-events-none group-hover:bg-zinc-300/50 transition-all duration-700" />
                         <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-zinc-100/50 rounded-full blur-3xl pointer-events-none group-hover:bg-zinc-200/50 transition-all duration-700" />
 
                         <div className="relative z-10">
-                            <h2 className="text-3xl font-bold text-zinc-900 mb-2">{mainMessage}</h2>
-                            <p className="text-zinc-500 mb-8">We'd love to hear from you. Fill out the form below.</p>
 
                             {/* Email */}
                             <div className="mb-8 p-4 rounded-xl bg-zinc-50 border border-zinc-200 flex items-center justify-between group/email transition-colors hover:bg-zinc-100 hover:border-zinc-300">
@@ -205,11 +203,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                                 <Label
                                                     htmlFor={option.replace(/\s/g, '-').toLowerCase()}
                                                     className={`
-                                                        flex items-center justify-center text-center px-4 py-3 rounded-xl border cursor-pointer transition-all duration-200 text-sm font-medium h-full
-                                                        ${formData.projectType.includes(option)
-                                                            ? 'bg-zinc-900 border-zinc-900 text-white shadow-lg'
-                                                            : 'bg-white border-zinc-200 text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900'}
-                                                    `}
+                                                            flex items-center justify-center text-center px-4 py-3 rounded-xl border cursor-pointer transition-all duration-200 text-sm font-medium h-full
+                                                            ${formData.projectType.includes(option)
+                                                            ? 'bg-[#74B52A] border-[#74B52A] text-white shadow-lg shadow-[#74B52A]/20'
+                                                            : 'bg-white border-zinc-200 text-zinc-500 hover:border-[#74B52A] hover:text-[#74B52A] hover:bg-[#74B52A]/5'}
+                                                        `}
                                                 >
                                                     {option}
                                                 </Label>
@@ -247,7 +245,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                                             <div className={`
                                                                 h-5 w-5 rounded-md border flex items-center justify-center transition-all
                                                                 ${formData.projectType.includes(option)
-                                                                    ? 'bg-zinc-900 border-zinc-900'
+                                                                    ? 'bg-[#74B52A] border-[#74B52A]'
                                                                     : 'border-zinc-300 bg-white'}
                                                             `}>
                                                                 {formData.projectType.includes(option) && (
@@ -269,7 +267,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
                                 <Button
                                     type="submit"
-                                    className="w-full h-14 text-lg font-semibold bg-zinc-900 text-white hover:bg-zinc-800 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                                    className="w-full h-14 text-lg font-semibold bg-zinc-900 text-white hover:bg-[#74B52A] rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1"
                                 >
                                     Send Message
                                 </Button>

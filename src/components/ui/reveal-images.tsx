@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Layout, Code2, Target, Share2, ArrowRight } from "lucide-react";
 import React from "react";
@@ -93,9 +94,9 @@ export function RevealImageList() {
 
 function ServiceCard({ title, description, icon: Icon, images }: { title: string, description: string, icon: any, images: any[] }) {
     const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
-    const cardRef = React.useRef<HTMLDivElement>(null);
+    const cardRef = React.useRef<HTMLAnchorElement>(null);
 
-    const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
         if (cardRef.current) {
             const rect = cardRef.current.getBoundingClientRect();
             setMousePos({
@@ -112,18 +113,19 @@ function ServiceCard({ title, description, icon: Icon, images }: { title: string
         "relative duration-500 delay-100 shadow-none group-hover:shadow-xl scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 group-hover:w-full group-hover:h-full w-full h-full overflow-hidden transition-all rounded-xl";
 
     return (
-        <div
+        <Link
+            href="#contact-form"
             ref={cardRef}
             onMouseEnter={handleMouseEnter}
             className="group relative flex items-center justify-between p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-zinc-300 hover:shadow-md hover:bg-white transition-all duration-300 cursor-pointer overflow-visible hover:z-50"
         >
-            <div className="flex items-center gap-6 relative z-10 pointer-events-none">
-                <div className="h-14 w-14 flex items-center justify-center rounded-xl bg-white border border-zinc-200 shadow-sm group-hover:scale-110 group-hover:border-[#74B52A]/30 group-hover:text-[#74B52A] transition-all duration-300 text-zinc-600">
-                    <Icon className="w-7 h-7" />
+            <div className="flex items-center gap-3 md:gap-6 relative z-10 pointer-events-none">
+                <div className="h-10 w-10 md:h-14 md:w-14 shrink-0 flex items-center justify-center rounded-xl bg-white border border-zinc-200 shadow-sm group-hover:scale-110 group-hover:border-[#74B52A]/30 group-hover:text-[#74B52A] transition-all duration-300 text-zinc-600">
+                    <Icon className="w-5 h-5 md:w-7 md:h-7" />
                 </div>
                 <div>
-                    <h3 className="text-xl font-bold text-zinc-900 mb-1 group-hover:text-[#74B52A] transition-colors">{title}</h3>
-                    <p className="text-zinc-500 font-medium">{description}</p>
+                    <h3 className="text-lg md:text-xl font-bold text-zinc-900 mb-1 group-hover:text-[#74B52A] transition-colors">{title}</h3>
+                    <p className="text-sm md:text-base text-zinc-500 font-medium">{description}</p>
                 </div>
             </div>
 
@@ -171,6 +173,6 @@ function ServiceCard({ title, description, icon: Icon, images }: { title: string
                     <img alt={images[2].alt} src={images[2].src} className="h-full w-full object-cover" />
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
