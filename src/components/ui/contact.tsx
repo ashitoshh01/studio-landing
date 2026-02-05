@@ -15,23 +15,16 @@ interface ContactSectionProps {
     contactEmail?: string;
     socialLinks?: Array<{ id: string; name: string; iconSrc: string; href: string }>;
     backgroundImageSrc?: string;
-    onSubmit?: (data: any) => void;
+    onSubmit?: (data: Record<string, unknown>) => void;
 }
-
-const defaultSocialLinks = [
-    { id: '1', name: 'X', iconSrc: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/x.svg', href: '#x' },
-    { id: '2', name: 'Instagram', iconSrc: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/instagram.svg', href: '#instagram' },
-    { id: '3', name: 'LinkedIn', iconSrc: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg', href: '#linkedin' },
-];
 
 export const ContactSection: React.FC<ContactSectionProps> = ({
     title = "Let's Build Something Amazing",
-    mainMessage = "Let's talk! 👋",
     contactEmail = "apixbuild@gmail.com",
-    socialLinks = defaultSocialLinks,
     backgroundImageSrc = "https://images.unsplash.com/photo-1557683316-973673baf926?w=1200&auto=format&fit=crop&q=80",
     onSubmit,
 }) => {
+
     const [formData, setFormData] = React.useState({
         name: '',
         email: '',
@@ -39,6 +32,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         message: '',
         projectType: [] as string[],
     });
+    const [bubbles, setBubbles] = React.useState<Array<React.CSSProperties>>([]);
+
+    React.useEffect(() => {
+        setBubbles(Array.from({ length: 15 }).map(() => ({
+            width: `${Math.random() * 20 + 10}px`,
+            height: `${Math.random() * 20 + 10}px`,
+            left: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 10}s`,
+            animationDuration: `${Math.random() * 20 + 10}s`,
+            top: `${Math.random() * 100}%`,
+            '--rand-x-offset': Math.random() > 0.5 ? 1 : -1,
+        } as React.CSSProperties)));
+    }, []);
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
     const [isSubmitted, setIsSubmitted] = React.useState(false);
 
@@ -116,18 +122,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             >
                 {/* Animated Bubbles */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
-                    {Array.from({ length: 15 }).map((_, i) => (
+                    {bubbles.map((style, i) => (
                         <div
                             key={i}
                             className="absolute bg-zinc-900/5 rounded-full animate-bubble opacity-0"
-                            style={{
-                                width: `${Math.random() * 20 + 10}px`,
-                                height: `${Math.random() * 20 + 10}px`,
-                                left: `${Math.random() * 100}%`,
-                                animationDelay: `${Math.random() * 10}s`,
-                                animationDuration: `${Math.random() * 20 + 10}s`,
-                                top: `${Math.random() * 100}%`,
-                            }}
+                            style={style}
                         />
                     ))}
                 </div>
@@ -249,7 +248,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                         </div>
 
                                         <div className="space-y-4 pt-2">
-                                            <Label className="text-zinc-700 block">I'm interested in...</Label>
+                                            <Label className="text-zinc-700 block">I&apos;m interested in...</Label>
 
                                             {/* Desktop Grid Layout (visible > 550px) */}
                                             <div className="hidden min-[550px]:grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -359,7 +358,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         .animate-bubble {
           animation: bubble var(--animation-duration, 15s) ease-in-out infinite;
           animation-fill-mode: forwards;
-          --rand-x-offset: ${Math.random() > 0.5 ? 1 : -1};
         }
       `}</style>
         </section >

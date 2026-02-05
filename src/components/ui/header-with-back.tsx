@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
-export function HeaderWithBack({ title }: { title?: string }) {
+export function HeaderWithBack() {
     const router = useRouter();
 
     return (

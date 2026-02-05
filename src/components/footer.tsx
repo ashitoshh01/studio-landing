@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Twitter, Instagram, Linkedin, Github } from "lucide-react";
+import { Twitter, Instagram, Linkedin } from "lucide-react";
 
 export function Footer() {
     return (
@@ -38,9 +38,6 @@ export function Footer() {
                         <ul className="space-y-4">
                             <li>
                                 <Link href="/about" className="text-zinc-500 hover:text-[#74B52A] transition-colors">About Us</Link>
-                            </li>
-                            <li>
-                                <Link href="#" className="text-zinc-500 hover:text-[#74B52A] transition-colors">Careers</Link>
                             </li>
                             <li>
                                 <Link href="/blog" className="text-zinc-500 hover:text-[#74B52A] transition-colors">Blog</Link>

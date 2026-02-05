@@ -15,9 +15,22 @@ export async function POST(request: Request) {
         const body = await request.json();
         const { name, email, phone, projectType, message } = body;
 
-        const phoneValue = phone || 'None';
+        // Simple HTML escape helpers
+        const escapeHtml = (unsafe: string) => {
+            return (unsafe || '').replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        const safeName = escapeHtml(name);
+        const safeEmail = escapeHtml(email);
+        const safeMessage = escapeHtml(message);
+        const safePhone = escapeHtml(phone || 'None');
+
         const projectTypesValue = Array.isArray(projectType) && projectType.length > 0
-            ? projectType.join(', ')
+            ? projectType.map((t: string) => escapeHtml(t)).join(', ')
             : 'None';
 
         const { data, error } = await resend.emails.send({
@@ -31,13 +44,13 @@ export async function POST(request: Request) {
                     <p>You have a new project request from your website.</p>
                     <hr style="border: 1px solid #eaeaea; margin: 20px 0;" />
                     
-                    <p><strong>Name:</strong> ${name}</p>
-                    <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-                    <p><strong>Phone:</strong> ${phoneValue}</p>
+                    <p><strong>Name:</strong> ${safeName}</p>
+                    <p><strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
+                    <p><strong>Phone:</strong> ${safePhone}</p>
                     <p><strong>Interested In:</strong> ${projectTypesValue}</p>
                     <p><strong>Message:</strong></p>
                     <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; color: #333;">
-                        ${message}
+                        ${safeMessage}
                     </div>
                 </div>
             `,

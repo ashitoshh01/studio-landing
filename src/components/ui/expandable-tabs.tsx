@@ -65,7 +65,7 @@ export function ExpandableTabs({
         }
     }, [activeTabIndex]);
 
-    useOnClickOutside(outsideClickRef as any, () => {
+    useOnClickOutside(outsideClickRef as React.RefObject<HTMLElement>, () => {
         setSelected(null);
         onChange?.(null);
     });

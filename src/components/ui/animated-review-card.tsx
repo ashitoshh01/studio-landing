@@ -201,7 +201,9 @@ export const AnimatedReviewCards = ({
                         onDragStart={() => setIsInteracting(true)}
                         onDragEnd={() => {
                             setIsInteracting(false)
-                            interactionType === "drag" && handleInteraction(index)
+                            if (interactionType === "drag") {
+                                handleInteraction(index)
+                            }
                         }}
                         onClick={() => {
                             if (interactionType === "click") {

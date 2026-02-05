@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Layout, Code2, Target, Share2, ArrowRight } from "lucide-react";
 import React from "react";
@@ -92,7 +93,7 @@ export function RevealImageList() {
     );
 }
 
-function ServiceCard({ title, description, icon: Icon, images }: { title: string, description: string, icon: any, images: any[] }) {
+function ServiceCard({ title, description, icon: Icon, images }: { title: string, description: string, icon: React.ElementType, images: { src: string; alt: string }[] }) {
     const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
     const cardRef = React.useRef<HTMLAnchorElement>(null);
 
@@ -144,7 +145,7 @@ function ServiceCard({ title, description, icon: Icon, images }: { title: string
                 }}
             >
                 <div className={effect}>
-                    <img alt={images[1].alt} src={images[1].src} className="h-full w-full object-cover" />
+                    <Image alt={images[1].alt} src={images[1].src} fill className="object-cover" sizes="100px" />
                 </div>
             </div>
 
@@ -157,7 +158,7 @@ function ServiceCard({ title, description, icon: Icon, images }: { title: string
                 }}
             >
                 <div className={cn(effect, "duration-200")}>
-                    <img alt={images[0].alt} src={images[0].src} className="h-full w-full object-cover" />
+                    <Image alt={images[0].alt} src={images[0].src} fill className="object-cover" sizes="100px" />
                 </div>
             </div>
 
@@ -170,7 +171,7 @@ function ServiceCard({ title, description, icon: Icon, images }: { title: string
                 }}
             >
                 <div className={cn(effect, "duration-300")}>
-                    <img alt={images[2].alt} src={images[2].src} className="h-full w-full object-cover" />
+                    <Image alt={images[2].alt} src={images[2].src} fill className="object-cover" sizes="100px" />
                 </div>
             </div>
         </Link>

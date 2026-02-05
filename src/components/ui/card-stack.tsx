@@ -4,6 +4,7 @@ import * as React from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { SquareArrowOutUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 function cn(...classes: Array<string | undefined | null | false>) {
     return classes.filter(Boolean).join(" ");
@@ -253,7 +254,7 @@ export function CardStack<T extends CardStackItem>({
                                     dragConstraints: { left: 0, right: 0 },
                                     dragElastic: 0.18,
                                     onDragEnd: (
-                                        _e: any,
+                                        _e: MouseEvent | TouchEvent | PointerEvent,
                                         info: { offset: { x: number }; velocity: { x: number } },
                                     ) => {
                                         if (reduceMotion) return;
@@ -380,12 +381,14 @@ function DefaultFanCard({ item }: { item: CardStackItem; active: boolean }) {
             {/* image */}
             <div className="absolute inset-0">
                 {item.imageSrc ? (
-                    <img
+                    <Image
                         src={item.imageSrc}
                         alt={item.title}
-                        className="h-full w-full object-cover"
+                        fill
+                        className="object-cover"
                         draggable={false}
-                        loading="eager"
+                        priority
+                        sizes="(max-width: 768px) 100vw, 50vw"
                     />
                 ) : (
                     <div className="flex h-full w-full items-center justify-center bg-secondary text-sm text-muted-foreground">

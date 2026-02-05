@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 type CardT = {
@@ -86,7 +87,7 @@ const VerifyIcon = () => (
 const Card = ({ card }: { card: CardT }) => (
     <div className="p-4 rounded-xl mx-4 shadow-sm hover:shadow-md transition-all duration-200 w-80 shrink-0 bg-white border border-zinc-200">
         <div className="flex gap-3">
-            <img className="size-10 rounded-full object-cover" src={card.image} alt={card.name} />
+            <Image className="rounded-full object-cover" src={card.image} alt={card.name} width={40} height={40} />
             <div className="flex flex-col">
                 <div className="flex items-center gap-1">
                     <p className="font-medium text-zinc-900 text-sm">{card.name}</p>

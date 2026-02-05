@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 
 interface Tab {
     title?: string;
-    icon?: any;
+    icon?: React.ElementType;
     type?: "separator";
 }
 
