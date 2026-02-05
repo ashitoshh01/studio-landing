@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   title: 'ApixBuild | Smart Digitals',
   description: 'Premium digital agency specialized in UI/UX design, web development, and strategy.',
   keywords: ['digital agency', 'web design', 'next.js', 'react', 'seo', 'ui/ux'],
+  icons: {
+    icon: '/logo-new.png',
+    apple: '/logo-new.png',
+  },
 };
 
 export default function RootLayout({
