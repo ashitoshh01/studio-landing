@@ -16,7 +16,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'Studio. | Digital Agency',
+  title: 'ApixBuild | Smart Digitals',
   description: 'Premium digital agency specialized in UI/UX design, web development, and strategy.',
   keywords: ['digital agency', 'web design', 'next.js', 'react', 'seo', 'ui/ux'],
 };
