@@ -13,11 +13,16 @@ export async function POST(request: Request) {
 
     try {
         const body = await request.json();
-        const { name, email, project, message } = body;
+        const { name, email, phone, projectType, message } = body;
+
+        const phoneValue = phone || 'None';
+        const projectTypesValue = Array.isArray(projectType) && projectType.length > 0
+            ? projectType.join(', ')
+            : 'None';
 
         const { data, error } = await resend.emails.send({
             from: 'Studio Landing <onboarding@resend.dev>',
-            to: ['ashitoshlavhate2@gmail.com'],
+            to: ['apixbuild@gmail.com'],
             replyTo: email as string,
             subject: `New Project Inquiry from ${name}`,
             html: `
@@ -28,6 +33,8 @@ export async function POST(request: Request) {
                     
                     <p><strong>Name:</strong> ${name}</p>
                     <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+                    <p><strong>Phone:</strong> ${phoneValue}</p>
+                    <p><strong>Interested In:</strong> ${projectTypesValue}</p>
                     <p><strong>Message:</strong></p>
                     <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; color: #333;">
                         ${message}

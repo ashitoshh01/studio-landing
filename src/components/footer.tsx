@@ -21,13 +21,13 @@ export function Footer() {
                             Empowering brands with cutting-edge digital solutions. We build immersive experiences that drive growth and engagement.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="#" className="text-zinc-400 hover:text-zinc-900 transition-colors">
+                            <Link href="#" className="text-zinc-400 hover:text-[#74B52A] transition-colors">
                                 <Twitter size={20} />
                             </Link>
-                            <Link href="#" className="text-zinc-400 hover:text-zinc-900 transition-colors">
+                            <Link href="#" className="text-zinc-400 hover:text-[#74B52A] transition-colors">
                                 <Instagram size={20} />
                             </Link>
-                            <Link href="#" className="text-zinc-400 hover:text-zinc-900 transition-colors">
+                            <Link href="#" className="text-zinc-400 hover:text-[#74B52A] transition-colors">
                                 <Linkedin size={20} />
                             </Link>
                         </div>
@@ -37,16 +37,16 @@ export function Footer() {
                         <h4 className="font-semibold text-zinc-900 mb-6">Company</h4>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="#" className="text-zinc-500 hover:text-zinc-900 transition-colors">About Us</Link>
+                                <Link href="/about" className="text-zinc-500 hover:text-[#74B52A] transition-colors">About Us</Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-zinc-500 hover:text-zinc-900 transition-colors">Careers</Link>
+                                <Link href="#" className="text-zinc-500 hover:text-[#74B52A] transition-colors">Careers</Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-zinc-500 hover:text-zinc-900 transition-colors">Blog</Link>
+                                <Link href="/blog" className="text-zinc-500 hover:text-[#74B52A] transition-colors">Blog</Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-zinc-500 hover:text-zinc-900 transition-colors">Press</Link>
+                                <Link href="/press" className="text-zinc-500 hover:text-[#74B52A] transition-colors">Press</Link>
                             </li>
                         </ul>
                     </div>
@@ -55,13 +55,13 @@ export function Footer() {
                         <h4 className="font-semibold text-zinc-900 mb-6">Legal</h4>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="#" className="text-zinc-500 hover:text-zinc-900 transition-colors">Terms of Service</Link>
+                                <Link href="/terms" className="text-zinc-500 hover:text-[#74B52A] transition-colors">Terms of Service</Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-zinc-500 hover:text-zinc-900 transition-colors">Privacy Policy</Link>
+                                <Link href="/privacy" className="text-zinc-500 hover:text-[#74B52A] transition-colors">Privacy Policy</Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-zinc-500 hover:text-zinc-900 transition-colors">Cookies</Link>
+                                <Link href="/cookies" className="text-zinc-500 hover:text-[#74B52A] transition-colors">Cookies</Link>
                             </li>
                         </ul>
                     </div>
@@ -72,10 +72,10 @@ export function Footer() {
                         © {new Date().getFullYear()} ApixBuild. All rights reserved.
                     </p>
                     <div className="flex gap-8">
-                        <Link href="#" className="text-zinc-500 hover:text-zinc-900 text-sm transition-colors">
+                        <Link href="/privacy" className="text-zinc-500 hover:text-[#74B52A] text-sm transition-colors">
                             Privacy
                         </Link>
-                        <Link href="#" className="text-zinc-500 hover:text-zinc-900 text-sm transition-colors">
+                        <Link href="/terms" className="text-zinc-500 hover:text-[#74B52A] text-sm transition-colors">
                             Terms
                         </Link>
                     </div>
