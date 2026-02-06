@@ -76,9 +76,9 @@ export function MobileNav({ tabs, onTabSelect }: MobileNavProps) {
                                 <Image
                                     src="/apix-logo.png"
                                     alt="Logo"
-                                    width={180}
-                                    height={60}
-                                    className="h-16 w-auto object-contain"
+                                    width={160}
+                                    height={50}
+                                    className="h-10 w-auto object-contain"
                                 />
                                 <Button
                                     variant="ghost"
