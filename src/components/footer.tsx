@@ -21,13 +21,13 @@ export function Footer() {
                             Empowering brands with cutting-edge digital solutions. We build immersive experiences that drive growth and engagement.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="#" className="text-zinc-400 hover:text-[#74B52A] transition-colors">
+                            <Link href="#" className="text-zinc-400 hover:text-[#74B52A] transition-colors" aria-label="Twitter">
                                 <Twitter size={20} />
                             </Link>
-                            <Link href="#" className="text-zinc-400 hover:text-[#74B52A] transition-colors">
+                            <Link href="#" className="text-zinc-400 hover:text-[#74B52A] transition-colors" aria-label="Instagram">
                                 <Instagram size={20} />
                             </Link>
-                            <Link href="#" className="text-zinc-400 hover:text-[#74B52A] transition-colors">
+                            <Link href="#" className="text-zinc-400 hover:text-[#74B52A] transition-colors" aria-label="LinkedIn">
                                 <Linkedin size={20} />
                             </Link>
                         </div>

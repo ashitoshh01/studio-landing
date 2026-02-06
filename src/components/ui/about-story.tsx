@@ -53,6 +53,7 @@ export function AboutStory() {
                                         src="/team/founder.png"
                                         alt="Founder"
                                         fill
+                                        sizes="(max-width: 768px) 50vw, 33vw"
                                         className="object-cover hover:scale-105 transition-transform duration-700"
                                     />
                                 </div>
@@ -68,6 +69,7 @@ export function AboutStory() {
                                         src="/team/co-founder.png"
                                         alt="Co-Founder"
                                         fill
+                                        sizes="(max-width: 768px) 50vw, 33vw"
                                         className="object-cover hover:scale-105 transition-transform duration-700"
                                     />
                                 </div>

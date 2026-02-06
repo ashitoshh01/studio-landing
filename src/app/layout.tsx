@@ -26,8 +26,15 @@ export const metadata: Metadata = {
     'Digital Agency', 'Web Development', 'UI/UX Design', 'Brand Strategy',
     'Social Media Management', 'Next.js Developers', 'React Agency',
     'Website Optimization', 'Growth Marketing', 'Apix Build',
-    'Software Development', 'E-commerce Solutions'
+    'Software Development', 'E-commerce Solutions', 'Headless CMS',
+    'Next.js 15', 'Tailwind CSS', 'Web Application', 'Startup MVP',
+    'SaaS Development', 'SEO Optimization', 'Performance Tuning',
+    'Best Digital Agency', 'Top Web Design Company', 'Enterprise Web Development',
+    'Creative Digital Agency', 'UX/UI Design Agency', 'Product Design',
+    'Vercel Experts', 'Startup Studio', 'Global Design Agency',
+    'Boutique Creative Studio', 'High-end Web Design', 'Digital Transformation'
   ],
+  category: 'technology',
   authors: [{ name: 'Apix Build Team', url: 'https://apixbuild.com' }],
   creator: 'Apix Build',
   publisher: 'Apix Build',
@@ -43,7 +50,7 @@ export const metadata: Metadata = {
     siteName: 'Apix Build',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Apix Build - Digital Solutions',
@@ -56,7 +63,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Apix Build | Digital Agency',
     description: 'Crafting exceptional digital experiences through code and design.',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.png'],
     creator: '@apixbuild',
   },
   robots: {
@@ -94,9 +101,10 @@ const jsonLd = {
         "width": 112,
         "height": 112
       },
-      "image": "https://apixbuild.com/og-image.jpg",
+      "image": "https://apixbuild.com/og-image.png",
       "description": "Full-service digital agency specializing in web development, UI/UX design, brand strategy, and social media management.",
       "email": "apixbuild@gmail.com",
+      "priceRange": "$$$",
       "sameAs": [
         "https://twitter.com/apixbuild",
         "https://instagram.com/apixbuild",
@@ -139,7 +147,7 @@ const jsonLd = {
       "name": "Apix Build",
       "description": "Full-service digital agency offering web development, UI/UX design, and social media management for startups and growing businesses.",
       "url": "https://apixbuild.com",
-      "priceRange": "$$",
+      "priceRange": "$$$",
       "areaServed": {
         "@type": "Place",
         "name": "Worldwide"

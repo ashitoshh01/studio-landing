@@ -181,6 +181,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                                 fill
                                 className="object-cover rounded-2xl shadow-md"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                priority={index < 4}
                             />
                         </div>
                     ))}
