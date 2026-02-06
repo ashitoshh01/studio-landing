@@ -89,11 +89,11 @@ export function Navbar() {
                 {/* Branding - Left Aligned */}
                 <Link href="/" className="hover:opacity-80 transition-opacity z-50">
                     <Image
-                        src="/logo-new.png"
+                        src="/apix-logo.png"
                         alt="Logo"
-                        width={220}
-                        height={140}
-                        className="h-40 w-auto object-contain"
+                        width={190}
+                        height={70}
+                        className="h-14 w-auto object-contain"
                         priority
                     />
                 </Link>

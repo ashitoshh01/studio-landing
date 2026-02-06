@@ -74,7 +74,7 @@ export function MobileNav({ tabs, onTabSelect }: MobileNavProps) {
                         >
                             <div className="flex justify-between items-center">
                                 <Image
-                                    src="/logo-new.png"
+                                    src="/apix-logo.png"
                                     alt="Logo"
                                     width={180}
                                     height={60}
