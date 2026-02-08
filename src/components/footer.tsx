@@ -38,7 +38,7 @@ export function Footer() {
                         <ul className="space-y-4">
                             <li>
                                 <Link href="/about" className="text-zinc-500 hover:text-[#74B52A] transition-colors">About Us</Link>
-                            </li>
+                            </li> 
                             <li>
                                 <Link href="/blog" className="text-zinc-500 hover:text-[#74B52A] transition-colors">Blog</Link>
                             </li>
