@@ -133,7 +133,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </div>
 
             {/* Main Content Overlay */}
-            <div className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen p-1 md:p-8 lg:p-12">
+            <div className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen px-4 py-10 md:p-8 lg:p-12">
                 {/* Main Section - Vertical Layout */}
                 <div className="flex flex-col items-center gap-8 w-full max-w-4xl p-0 md:p-8 rounded-xl mt-16">
                     {/* Title */}
