@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
@@ -15,13 +15,21 @@ const outfit = Outfit({
   display: 'swap',
 });
 
+export const viewport: Viewport = {
+  themeColor: '#ffffff',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://apixbuild.com'),
   title: {
     default: 'Apix Build | Premier Digital Agency for Web Development & Branding',
     template: '%s | Apix Build'
   },
-  description: 'Apix Build is a full-service digital agency specializing in custom web development, UI/UX design, brand strategy, and social media management. We build scalable digital solutions for growing businesses.',
+  description: 'Apix Build is a full-service digital agency specializing in custom web development, UI/UX design, brand strategy, and social media management for growing businesses.',
   keywords: [
     'Digital Agency', 'Web Development', 'UI/UX Design', 'Brand Strategy',
     'Social Media Management', 'Next.js Developers', 'React Agency',
@@ -79,6 +87,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://apixbuild.com',
+  },
+  verification: {
+    google: 'google-site-verification=YOUR_VERIFICATION_CODE',
+    yandex: 'yandex-verification=YOUR_VERIFICATION_CODE',
+    yahoo: 'yahoo-site-verification=YOUR_VERIFICATION_CODE',
+    other: {
+      'me': ['apixbuild@gmail.com'],
+    },
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Apix Build',
   },
   icons: {
     icon: '/logo-icon.png',

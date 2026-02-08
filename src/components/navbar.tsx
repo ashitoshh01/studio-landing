@@ -90,7 +90,7 @@ export function Navbar() {
                 <Link href="/" className="hover:opacity-80 transition-opacity z-50">
                     <Image
                         src="/apix-logo.png"
-                        alt="Logo"
+                        alt="Apix Build Digital Agency Logo"
                         width={190}
                         height={70}
                         className="h-14 w-auto object-contain"
