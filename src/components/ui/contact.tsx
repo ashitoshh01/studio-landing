@@ -47,6 +47,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     }, []);
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
     const [isSubmitted, setIsSubmitted] = React.useState(false);
+    const [isLoading, setIsLoading] = React.useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -66,11 +67,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setIsLoading(true);
 
         // If onSubmit is provided, use it (optional override)
         if (onSubmit) {
             await onSubmit(formData);
             setIsSubmitted(true);
+            setIsLoading(false);
             return;
         }
 
@@ -111,6 +114,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         } catch (error) {
             console.error('Error sending form:', error);
             alert('An error occurred. Please try again later.');
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -334,9 +339,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
                                         <Button
                                             type="submit"
-                                            className="w-full h-14 text-lg font-semibold bg-zinc-900 text-white hover:bg-[#74B52A] rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                                            disabled={isLoading}
+                                            className={`w-full h-14 text-lg font-semibold bg-zinc-900 text-white hover:bg-[#74B52A] rounded-xl shadow-lg transition-all duration-300 transform ${isLoading ? 'opacity-80 cursor-not-allowed' : 'hover:-translate-y-1'}`}
                                         >
-                                            Send Message
+                                            {isLoading ? (
+                                                <span className="flex items-center justify-center gap-2">
+                                                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                    </svg>
+                                                    Sending...
+                                                </span>
+                                            ) : (
+                                                "Send Message"
+                                            )}
                                         </Button>
                                     </form>
                                 </div>
