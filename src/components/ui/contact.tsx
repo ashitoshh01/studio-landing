@@ -75,16 +75,24 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         }
 
         try {
-            // Send email using the Next.js API route
-            const response = await fetch('/api/send', {
+            // Send email using Web3Forms (Client-side for Static Hosting)
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+                    ...formData,
+                    subject: `New Project Inquiry from ${formData.name}`,
+                    from_name: 'Apix Build Website'
+                }),
             });
 
-            if (response.ok) {
+            const result = await response.json();
+
+            if (result.success) {
                 // Show success state only on success
                 setIsSubmitted(true);
 
@@ -97,9 +105,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     projectType: [],
                 });
             } else {
-                const errorData = await response.json();
-                console.error('Failed to send email:', errorData);
-                alert(`Failed to send message: ${errorData.error?.message || 'Unknown error'}`);
+                console.error('Failed to send email:', result);
+                alert(`Failed to send message: ${result.message || 'Unknown error'}`);
             }
         } catch (error) {
             console.error('Error sending form:', error);
