@@ -30,28 +30,24 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const preloadImages = async () => {
-      // Preload the first 5 images (critical for hero marquee)
-      const criticalImages = DEMO_IMAGES.slice(0, 5);
+    const preloadFirstImage = async () => {
+      // Preload ONLY the first image (most critical for LCP)
+      const firstImageSrc = DEMO_IMAGES[0];
 
-      const imagePromises = criticalImages.map((src) => {
-        return new Promise((resolve) => {
-          const img = new window.Image();
-          img.src = src;
-          // Resolve on both success and error to prevent getting stuck
-          img.onload = resolve;
-          img.onerror = resolve;
-        });
+      await new Promise((resolve) => {
+        const img = new window.Image();
+        img.src = firstImageSrc;
+        // Resolve on both success and error to prevent getting stuck
+        img.onload = resolve;
+        img.onerror = resolve;
       });
-
-      await Promise.all(imagePromises);
     };
 
     // Minimum loading time of 2.5s for branding
     const minTimePromise = new Promise(resolve => setTimeout(resolve, 2500));
 
-    // Wait for both images to load AND minimum time
-    Promise.all([preloadImages(), minTimePromise]).then(() => {
+    // Wait for the FIRST image to load AND minimum time
+    Promise.all([preloadFirstImage(), minTimePromise]).then(() => {
       setIsLoading(false);
     });
 
