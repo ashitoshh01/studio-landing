@@ -77,7 +77,24 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             return;
         }
 
+        if (!process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY) {
+            console.error('Missing Web3Forms Access Key');
+            alert('Configuration Error: Missing Web3Forms Access Key. Please check your environment variables.');
+            setIsLoading(false);
+            return;
+        }
+
         try {
+            // Prepare data - flatten arrays for better email formatting
+            const submissionData = {
+                access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+                ...formData,
+                projectType: formData.projectType.join(', '), // Convert array to string
+                subject: `New Project Inquiry from ${formData.name}`,
+                from_name: 'Apix Build Website',
+                botcheck: false, // Hidden field for spam protection
+            };
+
             // Send email using Web3Forms (Client-side for Static Hosting)
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
@@ -85,12 +102,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify({
-                    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-                    ...formData,
-                    subject: `New Project Inquiry from ${formData.name}`,
-                    from_name: 'Apix Build Website'
-                }),
+                body: JSON.stringify(submissionData),
             });
 
             const result = await response.json();
