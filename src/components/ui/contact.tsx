@@ -190,7 +190,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                         Thank you for reaching out. Our team will contact you soon to discuss your project.
                                     </p>
                                     <p className="text-zinc-400 text-sm mt-4 max-w-md">
-                                        If you do not receive a response within 24 hours (very rare), or have any urgent/on-demand project, please contact: 9822330343 / 9518352166.
+                                        If you do not receive a response within 24 hours (very rare), or have any urgent/on-demand project, please contact: <span className="text-[#74B52A] font-semibold">9822330343 / 9518352166</span>.
                                     </p>
 
                                     <div className="mt-8">
