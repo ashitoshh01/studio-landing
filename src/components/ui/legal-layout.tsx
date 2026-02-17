@@ -1,3 +1,4 @@
+"use client";
 
 import React from 'react';
 import { HeaderWithBack } from '@/components/ui/header-with-back';
