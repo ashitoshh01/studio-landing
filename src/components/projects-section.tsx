@@ -24,7 +24,7 @@ const items = [
         title: "Business Website Redesign",
         description: "A modern website redesign focused on better usability, speed, and brand consistency.",
         category: "Web Design",
-        imageSrc: "/business-redesign.jpg",
+        imageSrc: "/business-redesign.webp",
         href: "#",
     },
     {
@@ -32,7 +32,7 @@ const items = [
         title: "Branding Strategy",
         description: "A cohesive brand system including logo, colors, typography, and digital presence.",
         category: "Brand Strategy",
-        imageSrc: "/brand-identity.png",
+        imageSrc: "/brand-identity.webp",
         href: "#",
     },
     {
@@ -48,7 +48,7 @@ const items = [
         title: "Social Media Design Kit",
         description: "A content and visual system designed to maintain consistency across social platforms.",
         category: "Social + Design",
-        imageSrc: "/social-media-kit.jpg",
+        imageSrc: "/social-media-kit.webp",
         href: "#",
     },
 ];
@@ -72,6 +72,7 @@ export function ProjectsSection() {
                                         src={item.imageSrc}
                                         alt={item.title}
                                         fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
                                     {/* Overlay */}

@@ -14,28 +14,47 @@ import Loader from '@/components/ui/loader';
 
 // A list of sample image URLs for the demo
 const DEMO_IMAGES = [
-  "/hero/hero-1.jpg",
-  "/hero/hero-2.jpg",
-  "/hero/hero-3.jpg",
-  "/hero/hero-4.jpg",
-  "/hero/hero-5.jpg",
-  "/hero/hero-6.jpg",
-  "/hero/hero-7.jpg",
-  "/hero/hero-8.jpg",
-  "/hero/hero-9.jpg",
-  "/hero/hero-10.jpg",
+  "/hero/hero-1.webp",
+  "/hero/hero-2.webp",
+  "/hero/hero-3.webp",
+  "/hero/hero-4.webp",
+  "/hero/hero-5.webp",
+  "/hero/hero-6.webp",
+  "/hero/hero-7.webp",
+  "/hero/hero-8.webp",
+  "/hero/hero-9.webp",
+  "/hero/hero-10.webp",
 ];
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    const preloadImages = async () => {
+      // Preload the first 5 images (critical for hero marquee)
+      const criticalImages = DEMO_IMAGES.slice(0, 5);
 
-    return () => clearTimeout(timer);
+      const imagePromises = criticalImages.map((src) => {
+        return new Promise((resolve) => {
+          const img = new window.Image();
+          img.src = src;
+          // Resolve on both success and error to prevent getting stuck
+          img.onload = resolve;
+          img.onerror = resolve;
+        });
+      });
+
+      await Promise.all(imagePromises);
+    };
+
+    // Minimum loading time of 2.5s for branding
+    const minTimePromise = new Promise(resolve => setTimeout(resolve, 2500));
+
+    // Wait for both images to load AND minimum time
+    Promise.all([preloadImages(), minTimePromise]).then(() => {
+      setIsLoading(false);
+    });
+
   }, []);
 
   if (isLoading) {
