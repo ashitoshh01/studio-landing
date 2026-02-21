@@ -27,10 +27,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://apixbuild.com'),
   title: {
-    default: 'Apix Build | Premier Digital Agency for Web Development & Branding',
+    default: 'Apix Build | Web Development & UI/UX Design Agency',
     template: '%s | Apix Build'
   },
-  description: 'Apix Build is a full-service digital agency specializing in custom web development, UI/UX design, brand strategy, and social media management for growing businesses.',
+  description: 'Apix Build is a digital agency specializing in custom web development, UI/UX design, brand strategy, and social media for growing businesses.',
   keywords: [
     'Digital Agency', 'Web Development', 'UI/UX Design', 'Brand Strategy',
     'Social Media Management', 'Next.js Developers', 'React Agency',
