@@ -75,12 +75,12 @@ export function LegalLayout({ title, lastUpdated, children }: LegalLayoutProps) 
                     font-weight: 600;
                     color: #18181b;
                 }
-                .legal-content a {
+                .legal-content a:not([class*="bg-"]) {
                     color: #74B52A;
                     text-decoration: underline;
                     text-underline-offset: 4px;
                 }
-                .legal-content a:hover {
+                .legal-content a:not([class*="bg-"]):hover {
                     color: #5a8d20;
                 }
             `}</style>

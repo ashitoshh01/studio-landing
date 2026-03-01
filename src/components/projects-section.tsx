@@ -1,6 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 const items = [
     {
@@ -9,15 +8,15 @@ const items = [
         description: "A conversion-focused landing page designed to validate ideas and attract early users.",
         category: "UI/UX + Web Dev",
         imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
-        href: "#",
+        href: "/services/ui-ux-design",
     },
     {
         id: 2,
-        title: "SaaS Analytics Dashboard",
-        description: "A clean dashboard UI designed for clarity, performance, and decision-making.",
-        category: "UX Thinking",
-        imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
-        href: "#",
+        title: "Workflow Automation",
+        description: "Smart automation workflows that eliminate repetitive tasks, connect your tools, and save hours every week.",
+        category: "AI Automation",
+        imageSrc: "/workflow-automation.jpg",
+        href: "/services/ai-automation",
     },
     {
         id: 3,
@@ -25,7 +24,7 @@ const items = [
         description: "A modern website redesign focused on better usability, speed, and brand consistency.",
         category: "Web Design",
         imageSrc: "/business-redesign.webp",
-        href: "#",
+        href: "/services/web-development",
     },
     {
         id: 4,
@@ -33,7 +32,7 @@ const items = [
         description: "A cohesive brand system including logo, colors, typography, and digital presence.",
         category: "Brand Strategy",
         imageSrc: "/brand-identity.webp",
-        href: "#",
+        href: "/services/brand-strategy",
     },
     {
         id: 5,
@@ -41,7 +40,7 @@ const items = [
         description: "A scalable web app UI built for long-term growth and performance.",
         category: "Engineering",
         imageSrc: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&auto=format&fit=crop&q=80",
-        href: "#",
+        href: "/services/web-development",
     },
     {
         id: 6,
@@ -49,7 +48,7 @@ const items = [
         description: "A content and visual system designed to maintain consistency across social platforms.",
         category: "Social + Design",
         imageSrc: "/social-media-kit.webp",
-        href: "#",
+        href: "/services/social-media-management",
     },
 ];
 
@@ -59,7 +58,7 @@ export function ProjectsSection() {
             <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {items.map((item) => (
-                        <Link key={item.id} href={item.href} className="block group">
+                        <a key={item.id} href={item.href} className="block group">
                             <div className="relative flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-zinc-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-zinc-300">
                                 {/* Image Container */}
                                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-100">
@@ -94,11 +93,10 @@ export function ProjectsSection() {
                                     </p>
                                 </div>
                             </div>
-                        </Link>
+                        </a>
                     ))}
                 </div>
             </div>
         </div>
     );
 }
-

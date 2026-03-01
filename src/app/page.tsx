@@ -28,7 +28,7 @@ export default function Home() {
         <AnimatedMarqueeHero
           tagline="Design. Build. Scale."
           title="Creating Impactful Experiences"
-          description="Transform your vision into reality with cutting-edge web solutions. From stunning designs to powerful applications, we craft digital products that drive results."
+          description={<>At <strong className="font-extrabold text-zinc-900">APIX BUILD</strong>, Transform your vision into reality with cutting-edge web solutions. From stunning designs to powerful applications, we craft digital products that drive results.</>}
           primaryCtaText="View Our Work"
           primaryCtaHref="#projects"
           secondaryCtaText="Start a Project"

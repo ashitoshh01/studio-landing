@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Layout, Code2, Target, Share2, Bot, ArrowRight } from "lucide-react";
@@ -9,6 +8,7 @@ const services = [
         title: "UI/UX Design",
         description: "Thoughtful interfaces focused on clarity and usability.",
         icon: Layout,
+        slug: "ui-ux-design",
         images: [
             {
                 src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&auto=format&fit=crop&q=60",
@@ -28,6 +28,7 @@ const services = [
         title: "Web Development",
         description: "Robust, scalable, and high-performance web solutions.",
         icon: Code2,
+        slug: "web-development",
         images: [
             {
                 src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=200&auto=format&fit=crop&q=60",
@@ -47,6 +48,7 @@ const services = [
         title: "Brand Strategy",
         description: "Building cohesive identities that resonate with your audience.",
         icon: Target,
+        slug: "brand-strategy",
         images: [
             {
                 src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=200&auto=format&fit=crop&q=60",
@@ -66,6 +68,7 @@ const services = [
         title: "Social Media Management",
         description: "Engaging content strategies to grow your digital presence.",
         icon: Share2,
+        slug: "social-media-management",
         images: [
             {
                 src: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=200&auto=format&fit=crop&q=60",
@@ -85,6 +88,7 @@ const services = [
         title: "AI Automation",
         description: "Intelligent automation that streamlines workflows and supercharges productivity.",
         icon: Bot,
+        slug: "ai-automation",
         images: [
             {
                 src: "/ai-automation-dashboard.png",
@@ -112,7 +116,7 @@ export function RevealImageList() {
     );
 }
 
-function ServiceCard({ title, description, icon: Icon, images }: { title: string, description: string, icon: React.ElementType, images: { src: string; alt: string }[] }) {
+function ServiceCard({ title, description, icon: Icon, images, slug }: { title: string, description: string, icon: React.ElementType, images: { src: string; alt: string }[], slug: string }) {
     const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
     const cardRef = React.useRef<HTMLAnchorElement>(null);
 
@@ -127,14 +131,13 @@ function ServiceCard({ title, description, icon: Icon, images }: { title: string
     };
 
     // Animation classes for the images
-    // Removed fixed positioning (right-8, top-1/2) 
     const container = "absolute z-40 h-16 w-16 md:h-24 md:w-24 pointer-events-none transition-transform duration-100 ease-out";
     const effect =
         "relative duration-500 delay-100 shadow-none group-hover:shadow-xl scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 group-hover:w-full group-hover:h-full w-full h-full overflow-hidden transition-all rounded-xl";
 
     return (
-        <Link
-            href="#contact-form"
+        <a
+            href={`/services/${slug}`}
             ref={cardRef}
             onMouseEnter={handleMouseEnter}
             className="group relative flex items-center justify-between p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-zinc-300 hover:shadow-md hover:bg-white transition-all duration-300 cursor-pointer overflow-visible hover:z-50"
@@ -193,6 +196,6 @@ function ServiceCard({ title, description, icon: Icon, images }: { title: string
                     <Image alt={images[2].alt} src={images[2].src} fill className="object-cover" sizes="100px" />
                 </div>
             </div>
-        </Link>
+        </a>
     )
 }

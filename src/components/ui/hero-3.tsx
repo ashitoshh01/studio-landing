@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 interface AnimatedMarqueeHeroProps {
     tagline: string;
     title: React.ReactNode;
-    description: string;
+    description: React.ReactNode;
     primaryCtaText?: string;
     primaryCtaHref?: string;
     secondaryCtaText?: string;

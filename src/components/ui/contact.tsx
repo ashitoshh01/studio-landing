@@ -28,19 +28,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         message: '',
         projectType: [] as string[],
     });
-    const [bubbles, setBubbles] = React.useState<Array<React.CSSProperties>>([]);
-
-    React.useEffect(() => {
-        setBubbles(Array.from({ length: 15 }).map(() => ({
-            width: `${Math.random() * 20 + 10}px`,
-            height: `${Math.random() * 20 + 10}px`,
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 10}s`,
-            animationDuration: `${Math.random() * 20 + 10}s`,
-            top: `${Math.random() * 100}%`,
-            '--rand-x-offset': Math.random() > 0.5 ? 1 : -1,
-        } as React.CSSProperties)));
-    }, []);
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
     const [isSubmitted, setIsSubmitted] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(false);
@@ -135,19 +122,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
     return (
         <section id="contact" className="relative min-h-screen overflow-hidden bg-zinc-50">
-            {/* Animated Bubbles Background */}
-            <div className="absolute inset-0 z-0 overflow-hidden">
-                {bubbles.map((style, i) => (
-                    <div
-                        key={i}
-                        className="absolute bg-zinc-900/5 rounded-full animate-bubble opacity-0"
-                        style={style}
-                    />
-                ))}
-            </div>
-
-            {/* Main Content Overlay */}
-            <div className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen px-4 py-10 md:p-8 lg:p-12">
+            {/* Main Content */}
+            <div className="flex flex-col items-center justify-center w-full min-h-screen px-4 py-10 md:p-8 lg:p-12">
                 {/* Main Section - Vertical Layout */}
                 <div className="flex flex-col items-center gap-8 w-full max-w-4xl p-0 md:p-8 rounded-xl mt-16">
                     {/* Title */}
