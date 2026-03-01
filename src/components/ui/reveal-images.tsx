@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Layout, Code2, Target, Share2, ArrowRight } from "lucide-react";
+import { Layout, Code2, Target, Share2, Bot, ArrowRight } from "lucide-react";
 import React from "react";
 
 const services = [
@@ -68,17 +68,36 @@ const services = [
         icon: Share2,
         images: [
             {
+                src: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=200&auto=format&fit=crop&q=60",
+                alt: "Content Creation",
+            },
+            {
                 src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&auto=format&fit=crop&q=60",
                 alt: "Social Analytics",
             },
             {
                 src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&auto=format&fit=crop&q=60",
                 alt: "Growth Charts",
+            }
+        ],
+    },
+    {
+        title: "AI Automation",
+        description: "Intelligent automation that streamlines workflows and supercharges productivity.",
+        icon: Bot,
+        images: [
+            {
+                src: "/ai-automation-dashboard.png",
+                alt: "AI Automation Dashboard",
             },
             {
-                src: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=200&auto=format&fit=crop&q=60",
-                alt: "Content Creation",
+                src: "/whatsapp-automation.png",
+                alt: "WhatsApp AI Automation",
             },
+            {
+                src: "/ai-robot-assistant.png",
+                alt: "AI Robot Assistant",
+            }
         ],
     },
 ];
