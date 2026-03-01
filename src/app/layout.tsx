@@ -20,12 +20,10 @@ export const viewport: Viewport = {
   themeColor: '#ffffff',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://apixbuild.com'),
+  metadataBase: new URL('https://apixbuild.in'),
   title: {
     default: 'Apix Build | Web Development & UI/UX Design Agency',
     template: '%s | Apix Build'
@@ -44,7 +42,7 @@ export const metadata: Metadata = {
     'Boutique Creative Studio', 'High-end Web Design', 'Digital Transformation'
   ],
   category: 'technology',
-  authors: [{ name: 'Apix Build Team', url: 'https://apixbuild.com' }],
+  authors: [{ name: 'Apix Build Team', url: 'https://apixbuild.in' }],
   creator: 'Apix Build',
   publisher: 'Apix Build',
   formatDetection: {
@@ -55,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Apix Build | Premier Digital Agency',
     description: 'Transform your vision into reality with high-performance web solutions, stunning design, and strategic branding.',
-    url: 'https://apixbuild.com',
+    url: 'https://apixbuild.in',
     siteName: 'Apix Build',
     images: [
       {
@@ -87,7 +85,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://apixbuild.com',
+    canonical: 'https://apixbuild.in',
   },
   verification: {
     google: 'google-site-verification=YOUR_VERIFICATION_CODE',
@@ -113,17 +111,17 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://apixbuild.com/#organization",
+      "@id": "https://apixbuild.in/#organization",
       "name": "Apix Build",
       "alternateName": "ApixBuild",
-      "url": "https://apixbuild.com",
+      "url": "https://apixbuild.in",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://apixbuild.com/logo-icon.png",
+        "url": "https://apixbuild.in/logo-icon.png",
         "width": 112,
         "height": 112
       },
-      "image": "https://apixbuild.com/og-image.png",
+      "image": "https://apixbuild.in/og-image.png",
       "description": "Full-service digital agency specializing in web development, UI/UX design, brand strategy, and social media management.",
       "email": "apixbuild@gmail.com",
       "priceRange": "$$$",
@@ -147,28 +145,28 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://apixbuild.com/#website",
-      "url": "https://apixbuild.com",
+      "@id": "https://apixbuild.in/#website",
+      "url": "https://apixbuild.in",
       "name": "Apix Build",
       "description": "Premium digital agency specialized in UI/UX design, web development, and brand strategy.",
       "publisher": {
-        "@id": "https://apixbuild.com/#organization"
+        "@id": "https://apixbuild.in/#organization"
       },
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://apixbuild.com/?s={search_term_string}"
+          "urlTemplate": "https://apixbuild.in/?s={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }
     },
     {
       "@type": "ProfessionalService",
-      "@id": "https://apixbuild.com/#service",
+      "@id": "https://apixbuild.in/#service",
       "name": "Apix Build",
       "description": "Full-service digital agency offering web development, UI/UX design, and social media management for startups and growing businesses.",
-      "url": "https://apixbuild.com",
+      "url": "https://apixbuild.in",
       "priceRange": "$$$",
       "areaServed": {
         "@type": "Place",
@@ -223,7 +221,7 @@ const jsonLd = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://apixbuild.com/#faq",
+      "@id": "https://apixbuild.in/#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -261,13 +259,13 @@ const jsonLd = {
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://apixbuild.com/#breadcrumb",
+      "@id": "https://apixbuild.in/#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://apixbuild.com"
+          "item": "https://apixbuild.in"
         }
       ]
     }
@@ -282,6 +280,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Preconnect for external resources */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://api.web3forms.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -11,17 +11,13 @@ import { ChevronDown, Mail, Check } from 'lucide-react';
 
 interface ContactSectionProps {
     title?: string;
-    mainMessage?: string;
     contactEmail?: string;
-    socialLinks?: Array<{ id: string; name: string; iconSrc: string; href: string }>;
-    backgroundImageSrc?: string;
     onSubmit?: (data: Record<string, unknown>) => void;
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({
     title = "Let's Build Something Amazing",
     contactEmail = "apixbuild@gmail.com",
-    backgroundImageSrc = "https://images.unsplash.com/photo-1557683316-973673baf926?w=1200&auto=format&fit=crop&q=80",
     onSubmit,
 }) => {
 
@@ -139,21 +135,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
     return (
         <section id="contact" className="relative min-h-screen overflow-hidden bg-zinc-50">
-            {/* Background Image and Animated Bubbles */}
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-5 transition-all duration-500 ease-in-out"
-                style={{ backgroundImage: `url(${backgroundImageSrc})` }}
-            >
-                {/* Animated Bubbles */}
-                <div className="absolute inset-0 z-0 overflow-hidden">
-                    {bubbles.map((style, i) => (
-                        <div
-                            key={i}
-                            className="absolute bg-zinc-900/5 rounded-full animate-bubble opacity-0"
-                            style={style}
-                        />
-                    ))}
-                </div>
+            {/* Animated Bubbles Background */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+                {bubbles.map((style, i) => (
+                    <div
+                        key={i}
+                        className="absolute bg-zinc-900/5 rounded-full animate-bubble opacity-0"
+                        style={style}
+                    />
+                ))}
             </div>
 
             {/* Main Content Overlay */}
@@ -162,9 +152,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 <div className="flex flex-col items-center gap-8 w-full max-w-4xl p-0 md:p-8 rounded-xl mt-16">
                     {/* Title */}
                     <div className="text-center w-full">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-zinc-900 leading-tight drop-shadow-sm">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-zinc-900 leading-tight drop-shadow-sm">
                             {title}
-                        </h1>
+                        </h2>
                     </div>
 
                     {/* Contact Form - Wider */}
@@ -377,27 +367,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </div>
             </div>
 
-
-            {/* CSS for bubble animation */}
-            <style jsx global>{`
-        @keyframes bubble {
-          0% {
-            transform: translateY(0) translateX(0) scale(0.5);
-            opacity: 0;
-          }
-          50% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(-100vh) translateX(calc(var(--rand-x-offset) * 10vw)) scale(1.2);
-            opacity: 0;
-          }
-        }
-        .animate-bubble {
-          animation: bubble var(--animation-duration, 15s) ease-in-out infinite;
-          animation-fill-mode: forwards;
-        }
-      `}</style>
-        </section >
+        </section>
     );
 };
+

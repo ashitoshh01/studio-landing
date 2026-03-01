@@ -10,7 +10,7 @@ export function Footer() {
                     <div className="col-span-2 md:col-span-2">
                         <Link href="/" className="mb-4 block hover:opacity-80 transition-opacity w-fit">
                             <Image
-                                src="/apix-logo.png"
+                                src="/apix-logo.webp"
                                 alt="ApixBuild Logo"
                                 width={180}
                                 height={60}

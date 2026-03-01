@@ -8,11 +8,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Cookie Policy - Apix Build",
         description: "How we use cookies to improve your browsing experience.",
-        url: "https://apixbuild.com/cookies",
+        url: "https://apixbuild.in/cookies",
         type: "website",
     },
     alternates: {
-        canonical: "https://apixbuild.com/cookies",
+        canonical: "https://apixbuild.in/cookies",
     },
     robots: {
         index: true,

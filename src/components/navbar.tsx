@@ -89,7 +89,7 @@ export function Navbar() {
                 {/* Branding - Left Aligned */}
                 <Link href="/" className="hover:opacity-80 transition-opacity z-50">
                     <Image
-                        src="/apix-logo.png"
+                        src="/apix-logo.webp"
                         alt="Apix Build Digital Agency Logo"
                         width={190}
                         height={70}

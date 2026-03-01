@@ -8,11 +8,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Apix Build Blog - Digital Insights & Tutorials",
         description: "Practical guides and tips on web development, design, and growing your digital presence.",
-        url: "https://apixbuild.com/blog",
+        url: "https://apixbuild.in/blog",
         type: "website",
     },
     alternates: {
-        canonical: "https://apixbuild.com/blog",
+        canonical: "https://apixbuild.in/blog",
     },
 };
 

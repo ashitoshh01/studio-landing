@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { cn } from "@/lib/utils"; // Assuming you have a `cn` utility from shadcn
+import { cn } from "@/lib/utils";
 
 // Props interface for the component
 interface AnimatedMarqueeHeroProps {
@@ -18,21 +17,18 @@ interface AnimatedMarqueeHeroProps {
     className?: string;
 }
 
-// Reusable Button component styled like in the image
+// Simple action button — no framer-motion for buttons (reduces JS bundle)
 const ActionButton = ({ children, href, className }: { children: React.ReactNode; href?: string; className?: string }) => {
-    const Component = href ? motion.a : motion.button;
     return (
-        <Component
+        <a
             href={href}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             className={cn(
-                "px-8 py-3 rounded-full font-semibold shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-opacity-75 inline-block",
+                "px-8 py-3 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-opacity-75 inline-block",
                 className
             )}
         >
             {children}
-        </Component>
+        </a>
     );
 };
 
@@ -48,17 +44,12 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
     images,
     className,
 }) => {
-    // Animation variants for the text content
-    const FADE_IN_ANIMATION_VARIANTS = {
-        hidden: { opacity: 0, y: 10 },
-        show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } },
-    } as const;
-
     // Duplicate images for a seamless loop
     const duplicatedImages = [...images, ...images];
 
     return (
         <section
+            id="hero"
             className={cn(
                 "relative w-full h-screen overflow-hidden bg-[#E7EAE5] flex flex-col items-center justify-center text-center px-4",
                 className
@@ -66,36 +57,18 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
         >
             <div className="z-10 flex flex-col items-center -translate-y-8">
                 {/* Tagline */}
-                <motion.div
-                    initial="hidden"
-                    animate="show"
-                    variants={FADE_IN_ANIMATION_VARIANTS}
-                    className="mb-4 inline-block rounded-full border border-border bg-card/50 px-4 py-1.5 text-sm font-medium text-zinc-600 backdrop-blur-sm"
-                >
+                <div className="mb-4 inline-block rounded-full border border-border bg-card/50 px-4 py-1.5 text-sm font-medium text-zinc-600 backdrop-blur-sm animate-[fadeIn_0.6s_ease-out_forwards]">
                     {tagline}
-                </motion.div>
+                </div>
 
-                {/* Main Title */}
-                <motion.h1
-                    initial="hidden"
-                    animate="show"
-                    variants={{
-                        hidden: {},
-                        show: {
-                            transition: {
-                                staggerChildren: 0.1,
-                            },
-                        },
-                    }}
-                    className="text-5xl md:text-7xl font-bold tracking-tighter text-foreground"
-                >
+                {/* Main Title - h1 for SEO, simple CSS animation not framer-motion */}
+                <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-foreground animate-[fadeInUp_0.7s_ease-out_0.1s_both]">
                     {typeof title === 'string' ? (
                         title.split(" ").map((word, i) => {
                             const isHighlight = word.includes("Impactful");
                             return (
-                                <motion.span
+                                <span
                                     key={i}
-                                    variants={FADE_IN_ANIMATION_VARIANTS}
                                     className="relative inline-block mx-2"
                                 >
                                     {isHighlight && (
@@ -107,33 +80,21 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                                         </span>
                                     )}
                                     <span className={isHighlight ? "relative z-10 text-white" : ""}>{word}</span>
-                                </motion.span>
+                                </span>
                             );
                         })
                     ) : (
                         title
                     )}
-                </motion.h1>
+                </h1>
 
                 {/* Description */}
-                <motion.p
-                    initial="hidden"
-                    animate="show"
-                    variants={FADE_IN_ANIMATION_VARIANTS}
-                    transition={{ delay: 0.5 }}
-                    className="mt-6 max-w-xl text-lg text-zinc-600 font-medium"
-                >
+                <p className="mt-6 max-w-xl text-lg text-zinc-600 font-medium animate-[fadeInUp_0.7s_ease-out_0.25s_both]">
                     {description}
-                </motion.p>
+                </p>
 
                 {/* Call to Action Buttons */}
-                <motion.div
-                    initial="hidden"
-                    animate="show"
-                    variants={FADE_IN_ANIMATION_VARIANTS}
-                    transition={{ delay: 0.6 }}
-                    className="mt-8 flex flex-wrap gap-4 justify-center"
-                >
+                <div className="mt-8 flex flex-wrap gap-4 justify-center animate-[fadeInUp_0.7s_ease-out_0.35s_both]">
                     {primaryCtaText && (
                         <ActionButton
                             href={primaryCtaHref}
@@ -151,20 +112,16 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                             {secondaryCtaText}
                         </ActionButton>
                     )}
-                </motion.div>
+                </div>
             </div>
 
-            {/* Animated Image Marquee */}
+            {/* Animated Image Marquee - CSS-only animation for performance */}
             <div className="absolute bottom-0 left-0 w-full h-1/3 md:h-2/5 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
-                <motion.div
+                <div
                     className="flex gap-4"
-                    animate={{
-                        x: ["-100%", "0%"],
-                        transition: {
-                            ease: "linear",
-                            duration: 40,
-                            repeat: Infinity,
-                        },
+                    style={{
+                        animation: 'heroMarquee 40s linear infinite',
+                        width: 'max-content',
                     }}
                 >
                     {duplicatedImages.map((src, index) => (
@@ -177,16 +134,18 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                         >
                             <Image
                                 src={src}
-                                alt={`Showcase image ${index + 1}`}
+                                alt={`Portfolio showcase ${(index % 6) + 1}`}
                                 fill
                                 className="object-cover rounded-2xl shadow-md"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                priority={index < 4}
+                                sizes="(max-width: 768px) 192px, 256px"
+                                priority={index === 0}
+                                loading={index === 0 ? "eager" : "lazy"}
                             />
                         </div>
                     ))}
-                </motion.div>
+                </div>
             </div>
+
         </section>
     );
 };

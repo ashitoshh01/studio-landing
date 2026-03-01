@@ -8,11 +8,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Privacy Policy - Apix Build",
         description: "How we handle and protect your personal information.",
-        url: "https://apixbuild.com/privacy",
+        url: "https://apixbuild.in/privacy",
         type: "website",
     },
     alternates: {
-        canonical: "https://apixbuild.com/privacy",
+        canonical: "https://apixbuild.in/privacy",
     },
     robots: {
         index: true,

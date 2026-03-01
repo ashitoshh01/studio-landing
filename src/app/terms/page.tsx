@@ -8,11 +8,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Terms of Service - Apix Build",
         description: "Service agreements and policies for working with Apix Build.",
-        url: "https://apixbuild.com/terms",
+        url: "https://apixbuild.in/terms",
         type: "website",
     },
     alternates: {
-        canonical: "https://apixbuild.com/terms",
+        canonical: "https://apixbuild.in/terms",
     },
     robots: {
         index: true,

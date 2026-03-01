@@ -38,7 +38,7 @@ export function LegalLayout({ title, lastUpdated, children }: LegalLayoutProps) 
             </div>
 
             {/* Global styles for this component's children to ensure consistent formatting */}
-            <style jsx global>{`
+            <style>{`
                 .legal-content h2 {
                     font-size: 1.5rem;
                     line-height: 2rem;

@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 export function AboutStory() {
     const features = [
         {
@@ -26,39 +24,24 @@ export function AboutStory() {
 
             <div className="container-wrapper relative z-10">
                 <div className="max-w-3xl mx-auto text-center mb-16 space-y-6">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-zinc-900 leading-tight"
-                    >
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-zinc-900 leading-tight">
                         Driven by Passion, <br /> <span className="text-[#68AC28]">Defined by Quality.</span>
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-lg text-zinc-600 font-sans leading-relaxed"
-                    >
+                    </h2>
+                    <p className="text-lg text-zinc-600 font-sans leading-relaxed">
                         ApixBuild was founded with a simple belief: digital products should be both functional and thoughtfully designed.
-                    </motion.p>
+                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                     {features.map((item, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 + (index * 0.1) }}
                             className="bg-white p-8 rounded-2xl border border-zinc-200/60 shadow-sm hover:shadow-md hover:border-[#68AC28]/30 transition-all duration-300 group"
                         >
                             <div className="w-10 h-1 bg-[#68AC28]/20 group-hover:bg-[#68AC28] transition-colors mb-6 rounded-full" />
                             <h3 className="text-xl font-heading font-semibold text-zinc-900 mb-4 group-hover:text-[#68AC28] transition-colors">{item.title}</h3>
                             <p className="text-zinc-600 leading-relaxed text-sm md:text-base">{item.description}</p>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
