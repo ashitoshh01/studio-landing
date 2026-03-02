@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { LegalLayout } from "@/components/ui/legal-layout";
 
 export const metadata: Metadata = {
@@ -63,7 +64,7 @@ export default function SocialMediaManagementPage() {
             </div>
 
             <div>
-                <h2>What's Included</h2>
+                <h2>What&apos;s Included</h2>
                 <ul>
                     <li>Monthly content strategy &amp; calendar</li>
                     <li>16–30 posts per month (images, carousels, reels)</li>
@@ -77,12 +78,12 @@ export default function SocialMediaManagementPage() {
             </div>
 
             <div className="mt-12 flex justify-center">
-                <a
+                <Link
                     href="/#contact"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-[#74B52A] text-black !no-underline hover:text-white font-semibold rounded-xl hover:bg-zinc-900 transition-all duration-300 hover:-translate-y-0.5 shadow-lg hover:shadow-zinc-900/20 text-base"
                 >
                     Start a Project →
-                </a>
+                </Link>
             </div>
         </LegalLayout>
     );

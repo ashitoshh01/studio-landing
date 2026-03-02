@@ -3,6 +3,7 @@ import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { DisableCopy } from '@/components/disable-copy';
+import { PopupForm } from '@/components/ui/popup-form';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -292,6 +293,7 @@ export default function RootLayout({
       </head>
       <body className={cn(inter.variable, outfit.variable, "antialiased font-sans bg-background text-foreground min-h-screen")}>
         <DisableCopy />
+        <PopupForm />
         {children}
       </body>
     </html>
