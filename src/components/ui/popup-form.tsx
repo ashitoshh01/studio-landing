@@ -21,12 +21,19 @@ export function PopupForm() {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        // Show after 4 seconds
-        const timer = setTimeout(() => {
-            setIsVisible(true);
-        }, 2000);
+        const hasSeenPopup = sessionStorage.getItem('hasSeenPopup');
 
-        return () => clearTimeout(timer);
+        if (!hasSeenPopup) {
+            // Show after 2 seconds
+            const timer = setTimeout(() => {
+                setIsVisible(true);
+                sessionStorage.setItem('hasSeenPopup', 'true');
+            }, 2000);
+
+            return () => clearTimeout(timer);
+        } else {
+            setIsEnquireButtonVisible(true);
+        }
     }, []);
 
     useEffect(() => {
