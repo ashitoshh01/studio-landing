@@ -21,7 +21,7 @@ export function Footer() {
                             Empowering brands with cutting-edge digital solutions. We build immersive experiences that drive growth and engagement.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="mailto:[apixbuild@gmail.com]" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#74B52A] transition-colors" aria-label="Mail">
+                            <Link href="mailto:apixbuild@gmail.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#74B52A] transition-colors" aria-label="Mail">
                                 <Mail size={20} />
                             </Link>
                             <Link href="https://www.instagram.com/apixbuild/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#74B52A] transition-colors" aria-label="Instagram">
