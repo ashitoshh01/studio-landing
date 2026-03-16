@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Twitter, Instagram, Linkedin } from "lucide-react";
+import { Mail, Instagram, Linkedin } from "lucide-react";
 
 export function Footer() {
     return (
@@ -21,8 +21,8 @@ export function Footer() {
                             Empowering brands with cutting-edge digital solutions. We build immersive experiences that drive growth and engagement.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="https://x.com/ApixBuild" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#74B52A] transition-colors" aria-label="Twitter">
-                                <Twitter size={20} />
+                            <Link href="mailto:[apixbuild@gmail.com]" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#74B52A] transition-colors" aria-label="Mail">
+                                <Mail size={20} />
                             </Link>
                             <Link href="https://www.instagram.com/apixbuild/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#74B52A] transition-colors" aria-label="Instagram">
                                 <Instagram size={20} />
